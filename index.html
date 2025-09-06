@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DFW Elite Meals</title>
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <meta name="theme-color" content="#E91E63">
+</head>
+<body>
+  <script src="assets/js/chrome.js"></script>
+  <script src="assets/js/i18n.js"></script>
+
+  <header class="hero">
+    <div class="container wrap">
+      <div>
+        <h1 data-i18n="hero_title">Elite Meals, Built for You</h1>
+        <p data-i18n="hero_body">
+          Performance-focused meals for DFW athletes and healthy eaters.
+          Fresh drops weekly. Mobile-first ordering.
+        </p>
+        <div class="actions">
+          <a href="menu.html" class="btn" data-i18n="nav_order_now">Order Now</a>
+          <a href="calculator.html" class="btn ghost">Macros</a>
+        </div>
+      </div>
+      <img src="assets/img/placeholder.jpg" alt="Meals" style="border-radius:18px">
+    </div>
+  </header>
+
+  <section class="section">
+    <div class="container">
+      <h2 data-i18n="how_it_works">How it works</h2>
+      <div class="grid cards">
+        <div class="card"><div class="pad"><span class="badge">1</span> <span data-i18n="step1">Order by Friday 7pm</span></div></div>
+        <div class="card"><div class="pad"><span class="badge">2</span> <span data-i18n="step2">We cook Wed & Sat</span></div></div>
+        <div class="card"><div class="pad"><span class="badge">3</span> <span data-i18n="step3">Flat $15 delivery (5-min wait)</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2>Featured Packs</h2>
+      <div id="packs" class="grid cards"></div>
+    </div>
+  </section>
+
+  <script src="assets/js/render.js"></script>
+</body>
+</html>

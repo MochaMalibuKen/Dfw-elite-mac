@@ -1,0 +1,30 @@
+{
+  "nav_menu": "Menú",
+  "nav_calc": "Calculadora",
+  "nav_athletes": "Atletas",
+  "nav_catering": "Catering",
+  "nav_reviews": "Reseñas",
+  "nav_contact": "Contacto",
+  "nav_order_now": "Ordenar",
+
+  "hero_title": "Comidas Élite, Hechas para Ti",
+  "hero_body": "Comidas enfocadas en el rendimiento para atletas de DFW y quienes comen saludable. Nuevas opciones cada semana. Pedido móvil fácil.",
+
+  "how_it_works": "Cómo funciona",
+  "step1": "Ordena antes del viernes 7pm",
+  "step2": "Cocinamos mié. y sáb.",
+  "step3": "Entrega fija $15 (espera 5 min)",
+
+  "size": "Tamaño",
+  "sides": "Acompañantes",
+  "premium_sides_note": "Acompañantes premium +$2",
+  "pay_now": "Pagar Ahora",
+  "secure_qbo": "Pago seguro con QuickBooks",
+  "buy_now": "Comprar Ahora",
+
+  "your_plan": "Tu Plan",
+  "bmi": "IMC",
+  "daily_calories": "Calorías Diarias",
+  "macros": "Macros",
+  "customize_pack": "Personaliza tu Paquete"
+}
