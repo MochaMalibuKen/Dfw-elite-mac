@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Order • DFW Elite Meals</title>
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <meta name="theme-color" content="#E91E63">
+</head>
+<body>
+  <!-- hook check -->
+  <script src="assets/js/chrome.js"></script>
+  <script src="assets/js/i18n.js"></script>
+
+  <section class="section">
+    <div class="container">
+      <h2>Place Your Order</h2>
+      <p class="small">All orders are due by <strong>Friday 7:00pm</strong>. Delivery is a flat $15.</p>
+
+      <form id="dfwOrder" class="form" style="max-width:680px">
+        <label>Full Name</label>
+        <input name="name" required placeholder="Your name">
+
+        <label>Email</label>
+        <input name="email" type="email" required placeholder="you@example.com" autocapitalize="off">
+
+        <label>Phone (optional)</label>
+        <input name="phone" type="tel" placeholder="(###) ###-####">
+
+        <label>Choose Your Meal</label>
+        <select name="meal" required>
+          <option value="">Select an option</option>
+          <option value="Option A - $12">Option A — $12</option>
+          <option value="Option B - $12">Option B — $12</option>
+          <option value="Option C - $12">Option C — $12</option>
+          <option value="Option D - $14">Option D — $14</option>
+          <option value="Option E - $14">Option E — $14</option>
+        </select>
+
+        <label>Add Extra Protein? (+$2)</label>
+        <select name="extraProtein">
+          <option value="No">No</option>
+          <option value="Yes">Yes (+$2)</option>
+        </select>
+
+        <label>Pickup or Delivery?</label>
+        <select name="fulfillment">
+          <option value="Pickup">Pickup</option>
+          <option value="Delivery">Delivery (+$15)</option>
+        </select>
+
+        <label>Notes (optional)</label>
+        <textarea name="notes" rows="3" placeholder="No onions, etc."></textarea>
+
+        <div style="margin-top:12px;display:flex;gap:10px;align-items:center;">
+          <button class="btn" type="submit" id="submitBtn">Submit Order</button>
+          <span class="small" id="cutoffMsg" aria-live="polite"></span>
+        </div>
+      </form>
+
+      <div id="orderSuccess" class="card" style="display:none;margin-top:14px">
+        <div class="pad">
+          <h3>Thanks! 🎉</h3>
+          <p class="small">We’ve received your order. You’ll get a confirmation email shortly.
+          Orders are due by <strong>Friday 7:00pm</strong>. You’ll receive a QuickBooks link to pay.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+  (function(){
+    function isPastCutoff(){
+      try{
+        const now = new Date();
+        const centralNow = new Date(now.toLocaleString('en-US',{timeZone:'America/Chicago'}));
+        const d=centralNow.getDay(),h=centralNow.getHours(),m=centralNow.getMinutes();
+        if(d===5 && (h>19 || (h===19 && m>=0))) return true; // Fri >= 7pm CT
+        if(d===6) return true; // Saturday
+        return false;
+      }catch(e){ return false; }
+    }
+    const form=document.getElementById('dfwOrder');
+    const btn=document.getElementById('submitBtn');
+    const msg=document.getElementById('cutoffMsg');
+    const success=document.getElementById('orderSuccess');
+
+    function updateCutoffUI(){
+      if(isPastCutoff()){ btn.disabled=true; msg.textContent="Cutoff reached. Orders roll to next week."; }
+      else { btn.disabled=false; msg.textContent="Open until Friday 7:00pm."; }
+    }
+    updateCutoffUI();
+
+    form.addEventListener('submit',async (e)=>{
+      e.preventDefault();
+      if(isPastCutoff()){ updateCutoffUI(); return; }
+
+      const fd=new FormData(form);
+      const payload=Object.fromEntries(fd.entries());
+
+      // Your Apps Script Web App URL
+      const endpoint="https://script.google.com/macros/s/AKfycby57I0KXidFetHz0gF2xcRlSYbBtRV4aXTbMWc8Aowc4T7lNv9I_Kz45CcWTwZaUD2O0Q/exec";
+
+      btn.disabled=true; btn.textContent="Sending…";
+      try{
+        await fetch(endpoint,{ method:'POST', mode:'no-cors', headers:{'Content-Type':'application/json'}, body:JSON.stringify(payload) });
+        form.reset(); form.style.display='none'; success.style.display='block';
+      }catch(err){
+        btn.disabled=false; btn.textContent="Submit Order";
+        msg.textContent="Couldn’t send. Please try again.";
+      }
+    });
+  })();
+  </script>
+</body>
+</html>

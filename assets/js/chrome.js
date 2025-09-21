@@ -9,13 +9,12 @@ function navHTML(){
       <div class="menu">
         <a href="menu.html" data-i18n="nav_menu">Menu</a>
         <a href="calculator.html" data-i18n="nav_calc">Calculator</a>
+        <a href="order.html" data-i18n="nav_order">Order</a>
         <a href="athletes.html" data-i18n="nav_athletes">Athletes</a>
         <a href="catering.html" data-i18n="nav_catering">Catering</a>
         <a href="reviews.html" data-i18n="nav_reviews">Reviews</a>
         <a href="contact.html" data-i18n="nav_contact">Contact</a>
-        <button class="lang-toggle" data-setlang="en">EN</button>
-        <button class="lang-toggle" data-setlang="es">ES</button>
-        <a class="cta btn" href="menu.html" data-i18n="nav_order_now">Order Now</a>
+        <a class="cta btn" href="order.html" data-i18n="nav_order_now">Order Now</a>
       </div>
     </div>
   </nav>`;
