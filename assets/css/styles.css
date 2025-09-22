@@ -188,9 +188,7 @@ header img.logo {
   color: var(--brand-primary);
 }
 .ig-note { margin-top: 8px; opacity: .7; }
+img.logo { max-height: 56px; height: auto; width: auto; }
+@media (max-width: 480px){ img.logo { max-height: 48px; } }
 
-/* keep navbar logo tidy on all pages */
-img.logo { max-height: 48px; height: auto; width: auto; }
-@media (min-width: 768px) {
-  img.logo { max-height: 56px; }
-}
+
