@@ -22,4 +22,23 @@
   "btn_calc": "See My Plan",
   "calc_note": "We’ll estimate calories & macros, then suggest meals/day.",
   "calc_footer": "Notes: BMI is a population screening tool and does not directly measure body fat. Protein/carbohydrate targets are based on widely used ACSM-style ranges (g/kg). Always consult your clinician for medical advice."
+  {
+  "calc_result_title": "Your Estimated Plan",
+  "calc_result_note": "Estimates based on ACSM-style guidance. Use for planning; adjust to how you feel and perform.",
+  "label_bmi": "BMI",
+  "label_tdee": "TDEE",
+  "label_goal_cals": "Goal Calories",
+  "label_protein": "Protein",
+  "label_carbs": "Carbs",
+  "label_fat": "Fat",
+  "label_meals_per_day": "Meals per day",
+  "label_avg": "avg",
+  "unit_kcal_day": "kcal/day",
+  "unit_kcal_meal": "kcal/meal",
+  "unit_g_day": "g/day",
+  "unit_g_per_kg": "g/kg",
+  "unit_of_kcal": "of kcal",
+  "cta_customize": "Customize & Order",
+  "acsm_quick_ref": "ACSM-style quick reference: Protein ~1.0-2.2 g/kg depending on training/goal; Carbs 3-12 g/kg based on training load; Fat 20-35% of total calories. Hydrate and aim for sufficient micronutrients and fiber."
+}
 }

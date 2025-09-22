@@ -13,7 +13,12 @@ async function loadLang(lang='en'){
     console.error('i18n load failed', e);
   }
 }
+// inside your I18N.set(lang) implementation, AFTER loading the dict and updating the DOM:
+window.I18N.current = lang;
+window.I18N.dict = loadedDict;
 
+// notify listeners (calculator, etc.)
+window.dispatchEvent(new CustomEvent('i18n:changed', { detail: { lang } }));
 // Get a translated string
 function t(key){ return I18N.strings[key] || key; }
 
