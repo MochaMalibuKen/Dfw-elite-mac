@@ -1,35 +1,10 @@
 // Simple i18n loader + translator
-window.I18N = { current: 'en', strings: {} };
+window.I18N = { current: 'en', strings: {}, dict: {} };
 
-async function loadLang(lang='en'){
-  try{
-    const res = await fetch(`data/lang/${lang}.json`);
-    const json = await res.json();
-
-    I18N.current = lang;
-    I18N.strings = json;
-
-    // ✅ Alias for macro.js (it expects I18N.dict)
-    I18N.dict = I18N.strings;
-
-    translate();
-    localStorage.setItem('lang', lang);
-
-    // ✅ Let macro.js know the language changed
-    window.dispatchEvent(new CustomEvent('i18n:changed', { detail: { lang } }));
-  }catch(e){
-    console.error('i18n load failed', e);
-  }
-}
-
-// inside your I18N.set(lang) implementation, AFTER loading the dict and updating the DOM:
-window.I18N.current = lang;
-window.I18N.dict = loadedDict;
-
-// notify listeners (calculator, etc.)
-window.dispatchEvent(new CustomEvent('i18n:changed', { detail: { lang } }));
 // Get a translated string
-function t(key){ return I18N.strings[key] || key; }
+function t(key){ 
+  return I18N.strings[key] || key; 
+}
 
 // Apply translations to elements with data-i18n
 function translate(){
@@ -45,10 +20,31 @@ function translate(){
   });
 }
 
+// Load a language file and apply
+async function loadLang(lang='en'){
+  try{
+    const res = await fetch(`data/lang/${lang}.json`);
+    const json = await res.json();
+
+    I18N.current = lang;
+    I18N.strings = json;
+    I18N.dict = json; // ✅ alias for macro.js
+
+    translate();
+    localStorage.setItem('lang', lang);
+
+    // ✅ Notify macro.js and others
+    window.dispatchEvent(new CustomEvent('i18n:changed', { detail: { lang } }));
+  }catch(e){
+    console.error('i18n load failed', e);
+  }
+}
+
 // Wire EN/ES buttons
 document.addEventListener('DOMContentLoaded', ()=>{
   const saved = localStorage.getItem('lang') || 'en';
   loadLang(saved);
+
   document.body.addEventListener('click', (e)=>{
     const btn = e.target.closest('[data-setlang]');
     if(!btn) return;
