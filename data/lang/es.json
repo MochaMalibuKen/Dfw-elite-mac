@@ -1,13 +1,37 @@
 {
-  "nav_menu": "Menu",
-  "nav_calc": "Calculator",
-  "nav_athletes": "Athletes",
+  "nav_menu": "Menú",
+  "nav_calc": "Calculadora",
+  "nav_athletes": "Atletas",
   "nav_catering": "Catering",
-  "nav_reviews": "Reviews",
-  "nav_contact": "Contact",
-  "nav_order_now": "Order Now",
+  "nav_reviews": "Reseñas",
+  "nav_contact": "Contacto",
+  "nav_order_now": "Ordenar",
+
+  "hero_title": "Comidas Élite, Hechas para Ti",
+  "hero_body": "Comidas enfocadas en el rendimiento para atletas de DFW y quienes comen saludable. Nuevas opciones cada semana. Pedido móvil fácil.",
+
+  "how_it_works": "Cómo funciona",
+  "step1": "Ordena antes del viernes 7pm",
+  "step2": "Cocinamos mié. y sáb.",
+  "step3": "Entrega fija $15 (espera 5 min)",
+
+  "always_on": "Siempre disponible",
+  "weekly_drops": "Opciones semanales",
+  "featured_packs": "Paquetes destacados",
+  "sold_out": "Agotado",
+
+  "size": "Tamaño",
+  "sides": "Acompañantes",
+  "premium_sides_note": "Acompañantes premium +$2",
+  "pay_now": "Pagar ahora",
+  "secure_qbo": "Pago seguro con QuickBooks",
+  "buy_now": "Comprar ahora",
+
+  "pack_3x7": "3 Comidas/Día × 7 Días (21 comidas)",
+  "pack_4x7": "4 Comidas/Día × 7 Días (28 comidas)",
+
   "calc_title": "Calculadora de Fitness (Estimado)",
-  "calc_disclaimer": "Basado en guías tipo ACSM. Los resultados son estimaciones - no consejo médico. Úsalo para planear comidas y elegir paquetes.",
+  "calc_disclaimer": "Basado en guías tipo ACSM. Los resultados son estimaciones — no consejo médico. Úsalo para planear comidas y elegir paquetes.",
   "label_sex": "Sexo",
   "opt_male": "Hombre",
   "opt_female": "Mujer",
@@ -17,51 +41,72 @@
   "label_weight_lb": "Peso (lb)",
   "label_activity": "Nivel de actividad (ACSM)",
   "act_sedentary": "Sedentario (poco o nada de ejercicio)",
-  "act_light": "Ligero (1-3 días/semana)",
-  "act_moderate": "Moderado (3-5 días/semana)",
-  "act_very": "Muy activo (6-7 días/semana)",
-  "act_athlete": "Atleta (2x día / intenso)",
+  "act_light": "Ligero (1–3 días/semana)",
+  "act_moderate": "Moderado (3–5 días/semana)",
+  "act_very": "Muy activo (6–7 días/semana)",
+  "act_athlete": "Atleta (2× día / intenso)",
   "label_goal": "Objetivo principal",
   "goal_lose": "Pérdida de grasa",
   "goal_maintain": "Mantener",
   "goal_gain": "Ganar músculo",
-  "goal_endurance": "Rendimiento de resistencia",
-
+  "goal_endurance": "Resistencia",
   "btn_calc": "Ver mi plan",
   "calc_note": "Estimaremos calorías y macros y luego sugeriremos comidas por día.",
   "calc_footer": "Notas: El IMC es una herramienta de cribado poblacional y no mide directamente la grasa corporal. Las metas de proteína/carbohidratos se basan en rangos usados tipo ACSM (g/kg). Consulta a tu médico para asesoría médica.",
 
   "calc_result_title": "Tu plan estimado",
   "calc_result_note": "Estimaciones basadas en guías tipo ACSM. Úsalas para planear; ajusta según te sientas y rindas.",
-
   "label_bmi": "IMC",
   "bmi_under": "Bajo peso",
   "bmi_normal": "Normal",
   "bmi_over": "Sobrepeso",
   "bmi_obese": "Obesidad",
-
   "label_tdee": "TDEE",
   "label_goal_cals": "Calorías objetivo",
   "unit_kcal_day": "kcal/día",
-
   "label_protein": "Proteína",
   "label_carbs": "Carbohidratos",
   "label_fat": "Grasa",
   "unit_g_day": "g/día",
   "unit_g_per_kg": "g/kg",
   "unit_of_kcal": "de kcal",
-
   "label_meals_per_day": "Comidas por día",
   "label_avg": "promedio",
   "unit_kcal_meal": "kcal/comida",
-
   "cta_customize": "Personalizar y ordenar",
   "footer_secure": "Pago seguro con QuickBooks",
-
   "acsm_quick_ref": "Referencia rápida tipo ACSM: Proteína ~1.0-2.2 g/kg según entrenamiento/objetivo; Carbohidratos 3-12 g/kg según carga; Grasa 20-35% de calorías.",
 
-  "tip_gain": "Prioriza proteína y calorías totales; 3-4 comidas balanceadas/día más un snack ayudan a cumplir objetivos.",
-  "tip_lose": "Mantén proteína alta para preservar masa magra; un déficit constante con 2-3 comidas/día funciona para muchos.",
+  "tip_gain": "Prioriza proteína y calorías totales; 3–4 comidas balanceadas/día más un snack ayudan a cumplir objetivos.",
+  "tip_lose": "Mantén proteína alta para preservar masa magra; un déficit constante con 2–3 comidas/día funciona para muchos.",
   "tip_endurance": "En días de entrenamiento, más carbohidratos (parte alta del rango); considera pre/post-entreno.",
-  "tip_maintain": "Equilibra tus comidas; cada una con proteína de calidad, verduras y un carbohidrato inteligente."
+  "tip_maintain": "Equilibra tus comidas; cada una con proteína de calidad, verduras y un carbohidrato inteligente.",
+
+  "athletes_title": "Atletas",
+  "athletes_intro": "Nuestr@s embajador@s son enfocados en el fitness, inspiradores y se alimentan con DFW Elite Meals. ¡Biografías completas pronto!",
+  "coming_soon": "Próximamente",
+
+  "reviews_title": "Reseñas",
+  "reviews_intro": "Lo que dicen nuestros clientes",
+
+  "contact_title": "Contacto",
+  "contact_sub": "Preguntas, pedidos personalizados o consultas de catering",
+  "label_name": "Nombre",
+  "label_email": "Correo",
+  "label_phone": "Teléfono",
+  "label_message": "Mensaje",
+  "btn_send": "Enviar mensaje",
+
+  "catering_title": "Catering",
+  "catering_intro": "Llama para catering. Se prefiere aviso de 6 meses. 50% de anticipo; resto 30 días antes.",
+  "catering_note": "Bodas y eventos grandes disponibles. No BBQ.",
+
+  "delivery_title": "Entrega y recogida",
+  "delivery_note": "Entrega fija de $15. Esperamos hasta 5 minutos afuera.",
+  "pickup_note": "Horario de recogida: (confirmar horario)",
+
+  "social_follow_us": "Síguenos",
+  "social_instagram_note": "Últimas comidas y novedades en Instagram",
+
+  "footer_rights": "Todos los derechos reservados."
 }

@@ -1,13 +1,37 @@
 {
   "nav_menu": "Menu",
-  "nav_calc": "Calculator", 
+  "nav_calc": "Calculator",
   "nav_athletes": "Athletes",
   "nav_catering": "Catering",
   "nav_reviews": "Reviews",
   "nav_contact": "Contact",
   "nav_order_now": "Order Now",
+
+  "hero_title": "Elite Meals, Built for You",
+  "hero_body": "Performance-focused meals for DFW athletes and healthy eaters. Fresh drops weekly. Mobile-first ordering.",
+
+  "how_it_works": "How it works",
+  "step1": "Order by Friday 7pm",
+  "step2": "We cook Wed & Sat",
+  "step3": "Flat $15 delivery (5-min wait)",
+
+  "always_on": "Always Available",
+  "weekly_drops": "Weekly Drops",
+  "featured_packs": "Featured Packs",
+  "sold_out": "Sold out",
+
+  "size": "Size",
+  "sides": "Sides",
+  "premium_sides_note": "Premium sides +$2",
+  "pay_now": "Pay Now",
+  "secure_qbo": "Secure checkout via QuickBooks",
+  "buy_now": "Buy Now",
+
+  "pack_3x7": "3 Meals/Day × 7 Days (21 meals)",
+  "pack_4x7": "4 Meals/Day × 7 Days (28 meals)",
+
   "calc_title": "Fitness Calculator (Estimated)",
-  "calc_disclaimer": "Based on ACSM-style guidelines. Results are estimates - not medical advice. Use to plan meals and shop packs.",
+  "calc_disclaimer": "Based on ACSM-style guidelines. Results are estimates — not medical advice. Use to plan meals and shop packs.",
   "label_sex": "Sex",
   "opt_male": "Male",
   "opt_female": "Female",
@@ -17,18 +41,19 @@
   "label_weight_lb": "Weight (lb)",
   "label_activity": "Activity Level (ACSM)",
   "act_sedentary": "Sedentary (little/no exercise)",
-  "act_light": "Light (1-3 days/wk)",
-  "act_moderate": "Moderate (3-5 days/wk)",
-  "act_very": "Very Active (6-7 days/wk)",
-  "act_athlete": "Athlete (2x day / heavy)",
+  "act_light": "Light (1–3 days/wk)",
+  "act_moderate": "Moderate (3–5 days/wk)",
+  "act_very": "Very Active (6–7 days/wk)",
+  "act_athlete": "Athlete (2× day / heavy)",
   "label_goal": "Primary Goal",
   "goal_lose": "Fat Loss",
   "goal_maintain": "Maintain",
   "goal_gain": "Gain Muscle",
   "goal_endurance": "Endurance Performance",
   "btn_calc": "See My Plan",
-  "calc_note": "We'll estimate calories & macros, then suggest meals/day.",
-  "calc_footer": "Notes: BMI is a population screening tool and doesn't directly measure body fat. Protein/carbohydrate targets are based on widely used ACSM-style ranges (g/kg). Always consult your clinician for medical advice.",
+  "calc_note": "We’ll estimate calories & macros, then suggest meals/day.",
+  "calc_footer": "Notes: BMI is a population screening tool and doesn’t directly measure body fat. The protein/carbohydrate targets are based on commonly used ACSM-style ranges (g/kg). Always consult your clinician for medical advice.",
+
   "calc_result_title": "Your Estimated Plan",
   "calc_result_note": "Estimates based on ACSM-style guidance. Use for planning; adjust to how you feel and perform.",
   "label_bmi": "BMI",
@@ -51,8 +76,36 @@
   "cta_customize": "Customize & Order",
   "footer_secure": "Secure checkout via QuickBooks",
   "acsm_quick_ref": "ACSM-style quick reference: Protein ~1.0-2.2 g/kg depending on training/goal; Carbs 3-12 g/kg based on training load; Fat 20-35% of total calories.",
-  "tip_gain": "Prioritize protein and total calories; 3-4 balanced meals/day plus a snack can help hit targets.",
-  "tip_lose": "Keep protein higher to preserve lean mass; steady deficit with 2-3 meals/day works for many.",
+  "tip_gain": "Prioritize protein and total calories; 3–4 balanced meals/day plus a snack can help hit targets.",
+  "tip_lose": "Keep protein higher to preserve lean mass; steady deficit with 2–3 meals/day works for many.",
   "tip_endurance": "Fuel training days with more carbs (upper end of your band); consider pre/post-workout carbs.",
-  "tip_maintain": "Balance meals across the day; anchor each with quality protein, veggies, and a smart carb."
+  "tip_maintain": "Balance meals across the day; anchor each with quality protein, veggies, and a smart carb.",
+
+  "athletes_title": "Athletes",
+  "athletes_intro": "Our ambassadors are fitness-focused, inspirational, and fuel their performance with DFW Elite Meals. Full bios coming soon!",
+  "coming_soon": "Coming Soon",
+
+  "reviews_title": "Reviews",
+  "reviews_intro": "What customers are saying",
+
+  "contact_title": "Contact",
+  "contact_sub": "Questions, custom orders, or catering inquiries",
+  "label_name": "Name",
+  "label_email": "Email",
+  "label_phone": "Phone",
+  "label_message": "Message",
+  "btn_send": "Send Message",
+
+  "catering_title": "Catering",
+  "catering_intro": "Call for catering. 6-month notice preferred. 50% deposit; remainder due 30 days prior.",
+  "catering_note": "Weddings and large events available. No BBQ.",
+
+  "delivery_title": "Delivery & Pickup",
+  "delivery_note": "Flat $15 delivery. We wait up to 5 minutes outside.",
+  "pickup_note": "Pickup hours: (confirm hours)",
+
+  "social_follow_us": "Follow Us",
+  "social_instagram_note": "Latest meals & updates on Instagram",
+
+  "footer_rights": "All rights reserved."
 }
