@@ -46,6 +46,41 @@
     </div>
   </section>
 
+  <!-- ✅ Social Feed section -->
+  <section class="section">
+  <div class="container">
+    <h2>Follow Us</h2>
+
+    <div class="social-grid">
+      <!-- Facebook (auto-resizes to wrapper) -->
+      <div class="fb-wrap">
+        <div id="fb-root"></div>
+        <script async defer crossorigin="anonymous"
+          src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v18.0"></script>
+
+        <div class="fb-page"
+          data-href="https://www.facebook.com/profile.php?id=100090718213321"
+          data-tabs="timeline"
+          data-width="600"                      <!-- any reasonable max; wrapper enforces 100% -->
+          data-small-header="true"
+          data-adapt-container-width="true"
+          data-hide-cover="false"
+          data-show-facepile="false">
+        </div>
+      </div>
+
+      <!-- Instagram (text button for now; easy to tap on mobile) -->
+      <div style="text-align:center">
+        <a class="ig-button" href="https://www.instagram.com/koamealprepsllc" target="_blank" rel="noopener">
+          Visit our Instagram →
+        </a>
+        <p class="small ig-note">Latest meals & updates (auto-updates on Instagram)</p>
+      </div>
+    </div>
+  </div>
+</section>
+  <!-- ✅ End Social Feed -->
+
   <script src="assets/js/render.js"></script>
 </body>
 </html>

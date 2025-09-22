@@ -21,8 +21,7 @@
   "goal_endurance": "Rendimiento de Resistencia",
   "btn_calc": "Ver Mi Plan",
   "calc_note": "Estimaremos calorías y macros, luego sugeriremos comidas por día.",
-  "calc_footer": "Notas: El IMC es una herramienta de cribado poblacional y no mide directamente la grasa corporal. Los objetivos de proteínas/carbohidratos se basan en rangos ACSM (g/kg). Siempre consulta a tu médico para consejo médico."
-  {
+  "calc_footer": "Notas: El IMC es una herramienta de cribado poblacional y no mide directamente la grasa corporal. Los objetivos de proteínas/carbohidratos se basan en rangos ACSM (g/kg). Siempre consulta a tu médico para consejo médico.",
   "calc_result_title": "Tu plan estimado",
   "calc_result_note": "Estimaciones basadas en guías estilo ACSM. Úsalo para planificar; ajusta según cómo te sientas y rindas.",
   "label_bmi": "IMC",
@@ -40,5 +39,4 @@
   "unit_of_kcal": "de kcal",
   "cta_customize": "Personalizar y ordenar",
   "acsm_quick_ref": "Referencia rápida estilo ACSM: Proteína ~1.0-2.2 g/kg según entrenamiento/meta; Carbohidratos 3-12 g/kg según carga; Grasas 20-35% de las calorías totales. Hidrátate y busca suficientes micronutrientes y fibra."
-}
 }

@@ -3,7 +3,7 @@ function navHTML(){
   <nav class="nav">
     <div class="container inner">
       <a class="brand" href="index.html">
-        <img src="assets/img/logo.png" alt="DFW Elite MAC logo">
+        <img src="assets/img/logo.png" class="logo" alt="DFW Elite MAC logo">
         <span class="brand-name">DFW ELITE MEALS</span>
       </a>
       <div class="menu">
@@ -52,3 +52,4 @@ function mountChrome(){
 }
 
 document.addEventListener('DOMContentLoaded', mountChrome);
+

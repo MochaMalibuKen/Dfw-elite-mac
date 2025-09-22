@@ -44,13 +44,25 @@
         </select>
 
         <label>Pickup or Delivery?</label>
-        <select name="fulfillment">
+        <select name="fulfillment" id="fulfillment">
           <option value="Pickup">Pickup</option>
           <option value="Delivery">Delivery (+$15)</option>
         </select>
 
+        <!-- Delivery-only fields -->
+        <div id="deliveryFields" style="display:none; margin-top:12px;">
+          <label>Street Address <span class="small">(required for delivery)</span></label>
+          <input name="address" placeholder="123 Main St" autocomplete="address-line1">
+
+          <label>City</label>
+          <input name="city" placeholder="Dallas" autocomplete="address-level2">
+
+          <label>Zip Code</label>
+          <input name="zip" placeholder="75201" inputmode="numeric" autocomplete="postal-code" maxlength="10">
+        </div>
+
         <label>Notes (optional)</label>
-        <textarea name="notes" rows="3" placeholder="No onions, etc."></textarea>
+        <textarea name="notes" rows="3" placeholder="No onions, gate code, etc."></textarea>
 
         <div style="margin-top:12px;display:flex;gap:10px;align-items:center;">
           <button class="btn" type="submit" id="submitBtn">Submit Order</button>
@@ -70,6 +82,7 @@
 
   <script>
   (function(){
+    // Cutoff logic (America/Chicago)
     function isPastCutoff(){
       try{
         const now = new Date();
@@ -80,10 +93,22 @@
         return false;
       }catch(e){ return false; }
     }
-    const form=document.getElementById('dfwOrder');
-    const btn=document.getElementById('submitBtn');
-    const msg=document.getElementById('cutoffMsg');
-    const success=document.getElementById('orderSuccess');
+
+    const form = document.getElementById('dfwOrder');
+    const btn  = document.getElementById('submitBtn');
+    const msg  = document.getElementById('cutoffMsg');
+    const success = document.getElementById('orderSuccess');
+
+    // Show/hide delivery fields + toggle required
+    const fulfillment = document.getElementById('fulfillment');
+    const deliveryFields = document.getElementById('deliveryFields');
+    function updateDeliveryUI(){
+      const isDel = fulfillment.value === 'Delivery';
+      deliveryFields.style.display = isDel ? 'block' : 'none';
+      deliveryFields.querySelectorAll('input').forEach(el => el.required = isDel);
+    }
+    fulfillment.addEventListener('change', updateDeliveryUI);
+    updateDeliveryUI();
 
     function updateCutoffUI(){
       if(isPastCutoff()){ btn.disabled=true; msg.textContent="Cutoff reached. Orders roll to next week."; }
@@ -91,23 +116,33 @@
     }
     updateCutoffUI();
 
-    form.addEventListener('submit',async (e)=>{
+    // Submit to Apps Script
+    form.addEventListener('submit', async (e)=>{
       e.preventDefault();
       if(isPastCutoff()){ updateCutoffUI(); return; }
 
-      const fd=new FormData(form);
-      const payload=Object.fromEntries(fd.entries());
+      const fd = new FormData(form);
+      const payload = Object.fromEntries(fd.entries());
 
-      // Your Apps Script Web App URL
-      const endpoint="https://script.google.com/macros/s/AKfycby57I0KXidFetHz0gF2xcRlSYbBtRV4aXTbMWc8Aowc4T7lNv9I_Kz45CcWTwZaUD2O0Q/exec";
+      // Your deployed Apps Script web app URL
+      const endpoint = "https://script.google.com/macros/s/AKfycby57I0KXidFetHz0gF2xcRlSYbBtRV4aXTbMWc8Aowc4T7lNv9I_Kz45CcWTwZaUD2O0Q/exec";
 
-      btn.disabled=true; btn.textContent="Sending…";
+      btn.disabled = true; btn.textContent = "Sending…";
       try{
-        await fetch(endpoint,{ method:'POST', mode:'no-cors', headers:{'Content-Type':'application/json'}, body:JSON.stringify(payload) });
-        form.reset(); form.style.display='none'; success.style.display='block';
+        // no-cors so it works from a static site
+        await fetch(endpoint, {
+          method:'POST',
+          mode:'no-cors',
+          headers:{'Content-Type':'application/json'},
+          body: JSON.stringify(payload)
+        });
+        form.reset();
+        updateDeliveryUI();
+        form.style.display = 'none';
+        success.style.display = 'block';
       }catch(err){
-        btn.disabled=false; btn.textContent="Submit Order";
-        msg.textContent="Couldn’t send. Please try again.";
+        btn.disabled = false; btn.textContent = "Submit Order";
+        msg.textContent = "Couldn’t send. Please try again.";
       }
     });
   })();

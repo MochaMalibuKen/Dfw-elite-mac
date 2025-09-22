@@ -1,2 +1,29 @@
-<script src="assets/js/chrome.js"></script>
-<script src="assets/js/i18n.js"></script>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Athletes | DFW Elite Meals</title>
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+  <!-- ✅ Hook once (mounts navbar + footer, and i18n) -->
+  <script src="assets/js/chrome.js"></script>
+  <script src="assets/js/i18n.js"></script>
+
+  <section class="section">
+    <div class="container">
+      <h1 data-i18n="nav_athletes">Athletes</h1>
+      <p class="small">
+        Our ambassadors are fitness-focused, inspirational, and fuel their performance with DFW Elite Meals.
+        Full bios coming soon!
+      </p>
+
+      <div id="athletes" class="grid cards"></div>
+    </div>
+  </section>
+
+  <!-- Page-specific scripts -->
+  <script src="assets/js/render.js"></script>
+</body>
+</html>

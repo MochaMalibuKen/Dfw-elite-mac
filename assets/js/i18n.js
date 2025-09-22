@@ -5,14 +5,23 @@ async function loadLang(lang='en'){
   try{
     const res = await fetch(`data/lang/${lang}.json`);
     const json = await res.json();
+
     I18N.current = lang;
     I18N.strings = json;
+
+    // ✅ Alias for macro.js (it expects I18N.dict)
+    I18N.dict = I18N.strings;
+
     translate();
     localStorage.setItem('lang', lang);
+
+    // ✅ Let macro.js know the language changed
+    window.dispatchEvent(new CustomEvent('i18n:changed', { detail: { lang } }));
   }catch(e){
     console.error('i18n load failed', e);
   }
 }
+
 // inside your I18N.set(lang) implementation, AFTER loading the dict and updating the DOM:
 window.I18N.current = lang;
 window.I18N.dict = loadedDict;
