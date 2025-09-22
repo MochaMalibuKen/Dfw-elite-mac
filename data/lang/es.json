@@ -1,7 +1,13 @@
 {
+  "nav_menu": "Menu",
+  "nav_calc": "Calculator",
+  "nav_athletes": "Athletes",
+  "nav_catering": "Catering",
+  "nav_reviews": "Reviews",
+  "nav_contact": "Contact",
+  "nav_order_now": "Order Now",
   "calc_title": "Calculadora de Fitness (Estimado)",
   "calc_disclaimer": "Basado en guías tipo ACSM. Los resultados son estimaciones - no consejo médico. Úsalo para planear comidas y elegir paquetes.",
-
   "label_sex": "Sexo",
   "opt_male": "Hombre",
   "opt_female": "Mujer",

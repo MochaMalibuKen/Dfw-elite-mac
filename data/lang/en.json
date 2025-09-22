@@ -1,4 +1,11 @@
 {
+  "nav_menu": "Menu",
+  "nav_calc": "Calculator", 
+  "nav_athletes": "Athletes",
+  "nav_catering": "Catering",
+  "nav_reviews": "Reviews",
+  "nav_contact": "Contact",
+  "nav_order_now": "Order Now",
   "calc_title": "Fitness Calculator (Estimated)",
   "calc_disclaimer": "Based on ACSM-style guidelines. Results are estimates - not medical advice. Use to plan meals and shop packs.",
   "label_sex": "Sex",
