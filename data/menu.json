@@ -1,0 +1,14 @@
+{
+  "packs": [
+    {
+      "id": "3x7",
+      "name_en": "3 Meals/Day × 7",
+      "qbo_payment_link": "https://quickbooks.example.com/pay/3x7"
+    },
+    {
+      "id": "4x7",
+      "name_en": "4 Meals/Day × 7",
+      "qbo_payment_link": "https://quickbooks.example.com/pay/4x7"
+    }
+  ]
+}

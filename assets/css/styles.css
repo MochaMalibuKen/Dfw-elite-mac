@@ -203,4 +203,28 @@ img.logo { max-height: 56px; height: auto; width: auto; }
 .menu .lang-toggle:hover {
   background: #f9f9f9;
 }
+.hero-img {
+  border-radius: 18px;
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+.hero-bg {
+  position: relative;
+  min-height: 35vh;
+  display: flex;
+  align-items: center;
+  color: #fff;
+  text-shadow: 0 2px 4px rgba(0,0,0,.5);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.hero-bg::before {
+  content: "";
+  position: absolute; inset: 0;
+  background: rgba(0,0,0,.35);
+}
+.hero-text { position: relative; max-width: 640px; }
+
 

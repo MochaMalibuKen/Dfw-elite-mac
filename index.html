@@ -11,22 +11,22 @@
   <script src="assets/js/chrome.js"></script>
   <script src="assets/js/i18n.js"></script>
 
-  <header class="hero">
-    <div class="container wrap">
-      <div>
-        <h1 data-i18n="hero_title">Elite Meals, Built for You</h1>
-        <p data-i18n="hero_body">
-          Performance-focused meals for DFW athletes and healthy eaters.
-          Fresh drops weekly. Mobile-first ordering.
-        </p>
-        <div class="actions">
-          <a href="menu.html" class="btn" data-i18n="nav_order_now">Order Now</a>
-          <a href="calculator.html" class="btn ghost">Macros</a>
-        </div>
+  <header class="hero hero-bg">
+  <div class="container wrap">
+    <div class="hero-text">
+      <h1 data-i18n="hero_title">Elite Meals, Built for You</h1>
+      <p data-i18n="hero_body">
+        Performance-focused meals for DFW athletes and healthy eaters.
+        Fresh drops weekly. Mobile-first ordering.
+      </p>
+      <div class="actions">
+        <a href="menu.html" class="btn" data-i18n="nav_order_now">Order Now</a>
+        <a href="calculator.html" class="btn ghost">Macros</a>
       </div>
-      <img src="assets/img/placeholder.jpg" alt="Meals" style="border-radius:18px">
     </div>
-  </header>
+  </div>
+</header>
+
 
   <section class="section">
     <div class="container">
@@ -82,5 +82,29 @@
   <!-- ✅ End Social Feed -->
 
   <script src="assets/js/render.js"></script>
+  <script>
+document.addEventListener('DOMContentLoaded', ()=>{
+  const el = document.querySelector('.hero-bg');
+  if(!el) return;
+
+  // Use your exact filenames; keep the “cutsom” spelling if that's the real file name
+  const IMGS = [
+    'assets/img/hero-meals.jpg',
+    'assets/img/chicken-baconranch-pasta.jpg',
+    'assets/img/shrimp-pasta.jpg',
+    'assets/img/custommeal.jpg',
+  ];
+
+  let i = 0;
+  function setBG(url){ el.style.backgroundImage = `url("${url}")`; }
+  setBG(IMGS[0]);
+
+  setInterval(()=>{
+    i = (i + 1) % IMGS.length;
+    setBG(IMGS[i]);
+  }, 6000);
+});
+</script>
+
 </body>
 </html>
