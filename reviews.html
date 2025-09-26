@@ -1,21 +1,83 @@
-<script src="assets/js/chrome.js"></script>
-<script src="assets/js/i18n.js"></script>
-<!-- Chat widget -->
-<div id="chat-fab" class="chat-fab" aria-label="Open chat" role="button" tabindex="0">💬</div>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Reviews • DFW Elite Meals</title>
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <meta name="theme-color" content="#E91E63">
+</head>
+<body>
+  <script src="assets/js/chrome.js"></script>
+  <script src="assets/js/i18n.js"></script>
 
-<div id="chat-panel" class="chat-panel" aria-hidden="true">
-  <div class="chat-head">
-    <strong>Chat with DFW Elite</strong>
-    <button id="chat-close" class="chat-close" aria-label="Close">×</button>
+  <section class="section">
+    <div class="container">
+      <h1>Reviews</h1>
+      <p class="small">Real feedback from Elite MAC customers. Leave yours below!</p>
+
+      <div id="reviewsSummary" class="card" style="margin-bottom:14px">
+        <div class="pad">
+          <div id="avgStars" style="font-size:1.1rem"></div>
+          <div class="small">
+            <a id="googleReviews" href="#" target="_blank" rel="noopener">Leave a Google Review</a> •
+            <a id="fbReviews" href="#" target="_blank" rel="noopener">Review on Facebook</a>
+          </div>
+        </div>
+      </div>
+
+      <div id="reviewsGrid" class="grid cards"></div>
+
+      <div class="card" style="margin-top:14px">
+        <div class="pad">
+          <h3 style="margin:0 0 8px">Add Your Review</h3>
+          <form id="reviewForm" class="form" style="max-width:560px">
+            <label>Name</label>
+            <input name="name" required placeholder="Your name">
+
+            <label>Rating</label>
+            <select name="rating" required>
+              <option value="5">★★★★★ (5)</option>
+              <option value="4">★★★★☆ (4)</option>
+              <option value="3">★★★☆☆ (3)</option>
+              <option value="2">★★☆☆☆ (2)</option>
+              <option value="1">★☆☆☆☆ (1)</option>
+            </select>
+
+            <label>Comment</label>
+            <textarea name="comment" rows="3" placeholder="What did you think?" required></textarea>
+
+            <div style="display:flex;gap:10px;align-items:center;margin-top:10px">
+              <button class="btn" type="submit" id="reviewBtn">Submit</button>
+              <span id="reviewMsg" class="small" aria-live="polite"></span>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Chat widget -->
+  <div id="chat-fab" class="chat-fab" aria-label="Open chat" role="button" tabindex="0">💬</div>
+  <div id="chat-panel" class="chat-panel" aria-hidden="true">
+    <div class="chat-head">
+      <strong>Chat with DFW Elite</strong>
+      <button id="chat-close" class="chat-close" aria-label="Close">×</button>
+    </div>
+    <form id="chat-form" class="chat-body">
+      <input name="name" type="text" placeholder="Your name" required>
+      <input name="email" type="email" placeholder="Email (for reply)" required>
+      <textarea name="message" rows="4" placeholder="How can we help?" required></textarea>
+      <button class="btn" type="submit">Send</button>
+      <div id="chat-status" class="small" style="margin-top:6px;opacity:.8"></div>
+      <div class="small" style="margin-top:10px;text-align:center">
+        Prefer email directly?
+        <a href="mailto:info@dfwelitemeals.com?subject=DFW%20Elite%20Chat%20Inquiry">Click here</a>
+      </div>
+    </form>
   </div>
 
-  <form id="chat-form" class="chat-body">
-    <input name="name" type="text" placeholder="Your name" required>
-    <input name="email" type="email" placeholder="Email (for reply)" required>
-    <textarea name="message" rows="4" placeholder="How can we help?" required></textarea>
-    <button class="btn" type="submit">Send</button>
-    <div id="chat-status" class="small" style="margin-top:6px;opacity:.8"></div>
-  </form>
-</div>
-
-<script src="assets/js/chat.js"></script>
+  <script src="assets/js/reviews.js"></script>
+  <script src="assets/js/chat.js"></script>
+</body>
+</html>

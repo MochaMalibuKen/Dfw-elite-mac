@@ -4,7 +4,7 @@ function navHTML(){
     <div class="container inner">
       <a class="brand" href="index.html">
         <img src="assets/img/logo.png" class="logo" alt="DFW Elite MAC logo">
-        <span class="brand-name">DFW ELITE MEALS</span>
+        <span class="brand-name">ELITE MEALS and CATERING</span>
       </a>
       <div class="menu">
         <a href="menu.html" data-i18n="nav_menu">Menu</a>
