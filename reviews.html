@@ -1,2 +1,21 @@
 <script src="assets/js/chrome.js"></script>
 <script src="assets/js/i18n.js"></script>
+<!-- Chat widget -->
+<div id="chat-fab" class="chat-fab" aria-label="Open chat" role="button" tabindex="0">💬</div>
+
+<div id="chat-panel" class="chat-panel" aria-hidden="true">
+  <div class="chat-head">
+    <strong>Chat with DFW Elite</strong>
+    <button id="chat-close" class="chat-close" aria-label="Close">×</button>
+  </div>
+
+  <form id="chat-form" class="chat-body">
+    <input name="name" type="text" placeholder="Your name" required>
+    <input name="email" type="email" placeholder="Email (for reply)" required>
+    <textarea name="message" rows="4" placeholder="How can we help?" required></textarea>
+    <button class="btn" type="submit">Send</button>
+    <div id="chat-status" class="small" style="margin-top:6px;opacity:.8"></div>
+  </form>
+</div>
+
+<script src="assets/js/chat.js"></script>

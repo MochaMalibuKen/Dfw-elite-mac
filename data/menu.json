@@ -3,12 +3,18 @@
     {
       "id": "3x7",
       "name_en": "3 Meals/Day × 7",
-      "qbo_payment_link": "https://quickbooks.example.com/pay/3x7"
+      "qbo_links": {
+        "pickup":   "https://quickbooks.example.com/pay/3x7-pickup",
+        "delivery": "https://quickbooks.example.com/pay/3x7-delivery"
+      }
     },
     {
       "id": "4x7",
       "name_en": "4 Meals/Day × 7",
-      "qbo_payment_link": "https://quickbooks.example.com/pay/4x7"
+      "qbo_links": {
+        "pickup":   "https://quickbooks.example.com/pay/4x7-pickup",
+        "delivery": "https://quickbooks.example.com/pay/4x7-delivery"
+      }
     }
   ]
 }

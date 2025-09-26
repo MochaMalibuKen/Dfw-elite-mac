@@ -25,6 +25,11 @@ function toCm(ft,inches){ return ft*30.48 + inches*2.54; }
 function clamp(n,min,max){ return Math.max(min, Math.min(max, n)); }
 function fmt(n){ return new Intl.NumberFormat().format(Math.round(n)); }
 function round1(n){ return Math.round(n*10)/10; }
+function getFulfillment(){
+  const el = document.getElementById('calcFulfillment');
+  return (el && (el.value === 'delivery' || el.value === 'pickup')) ? el.value : 'pickup';
+}
+
 
 function calcBMR(sex, kg, cm, age){
   // Mifflin-St Jeor
@@ -96,69 +101,90 @@ function macroTargetsACSM(goal, activity, kg, kcal){
 let LAST_STATE = null; // store last computed values for live i18n swaps
 
 function renderPlan(state){
-  if (!state) return;
-  const { bmi, bmiCat, tdee, targetKcal, macros, meals, packs, goal } = state;
+  try{
+    if (!state) return;
+    const { bmi, bmiCat, tdee, targetKcal, macros, meals, goal } = state;
+    const packs = state.packs || {};
+    const primary   = packs.primary || null;
+    const secondary = packs.secondary || null;
 
-  const primary = packs.primary;
-  const secondary = packs.secondary;
+    // Fulfillment selection (defaults to pickup)
+    const ffEl = document.getElementById('calcFulfillment');
+    const fulfill = (ffEl && (ffEl.value === 'delivery' || ffEl.value === 'pickup')) ? ffEl.value : 'pickup';
 
-  const tips = goalTips(goal);
+    // Resolve links safely (support old qbo_payment_link for backwards-compat)
+    const primaryHref   = (primary && (primary.qbo_links?.[fulfill] || primary.qbo_payment_link)) || '#';
+    const secondaryHref = (secondary && (secondary.qbo_links?.[fulfill] || secondary.qbo_payment_link)) || '#';
 
-  const html = `
-    <div class="card"><div class="pad">
-      <h3>${t("calc_result_title","Your Estimated Plan")}</h3>
-      <p class="small" style="opacity:.8">${t("calc_result_note","Estimates based on ACSM-style guidance. Use for planning; adjust to how you feel and perform.")}</p>
+    const tips = goalTips(goal);
 
-      <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;margin-top:8px">
-        <div class="card"><div class="pad">
-          <strong>${t("label_bmi","BMI")}</strong><br>
-          ${round1(bmi)} • ${bmiCat}
-        </div></div>
-        <div class="card"><div class="pad">
-          <strong>${t("label_tdee","TDEE")}</strong><br>
-          ~${fmt(tdee)} ${t("unit_kcal_day","kcal/day")}
-        </div></div>
-        <div class="card"><div class="pad">
-          <strong>${t("label_goal_cals","Goal Calories")}</strong><br>
-          ~${fmt(targetKcal)} ${t("unit_kcal_day","kcal/day")}
-        </div></div>
-      </div>
+    const html = `
+      <div class="card"><div class="pad">
+        <h3>${t("calc_result_title","Your Estimated Plan")}</h3>
+        <p class="small" style="opacity:.8">${t("calc_result_note","Estimates based on ACSM-style guidance. Use for planning; adjust to how you feel and perform.")}</p>
 
-      <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;margin-top:10px">
-        <div class="card"><div class="pad">
-          <strong>${t("label_protein","Protein")}</strong><br>
-          ${fmt(macros.protein_g)} ${t("unit_g_day","g/day")}
-          <div class="small" style="opacity:.7">~${round1(macros.protein_g / state.kg)} ${t("unit_g_per_kg","g/kg")}</div>
-        </div></div>
-        <div class="card"><div class="pad">
-          <strong>${t("label_carbs","Carbs")}</strong><br>
-          ${fmt(macros.carbs_g)} ${t("unit_g_day","g/day")}
-          <div class="small" style="opacity:.7">${t("label_acsm_band","ACSM band by activity")}</div>
-        </div></div>
-        <div class="card"><div class="pad">
-          <strong>${t("label_fat","Fat")}</strong><br>
-          ${fmt(macros.fat_g)} ${t("unit_g_day","g/day")}
-          <div class="small" style="opacity:.7">~${Math.round(FAT_PCT_DEFAULT*100)}% ${t("unit_of_kcal","of kcal")}</div>
-        </div></div>
-      </div>
-
-      <div class="card" style="margin-top:10px"><div class="pad">
-        <strong>${t("label_meals_per_day","Meals per day")}</strong>: ${meals} (${t("label_avg","avg")} ~${AVG_MEAL_CAL} ${t("unit_kcal_meal","kcal/meal")})
-        <p class="small" style="margin:.3rem 0;opacity:.8">${tips}</p>
-        <div class="actions" style="display:flex;gap:10px;flex-wrap:wrap;margin-top:6px">
-          ${primary ? `<a class="btn" href="${primary.qbo_payment_link}" target="_blank" rel="noopener">${primary.name_en || 'Pack'}</a>`:''}
-          ${secondary ? `<a class="btn ghost" href="${secondary.qbo_payment_link}" target="_blank" rel="noopener">${secondary.name_en || 'Alt Pack'}</a>`:''}
-          <a class="btn dark" href="order.html">${t("cta_customize","Customize & Order")}</a>
+        <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;margin-top:8px">
+          <div class="card"><div class="pad">
+            <strong>${t("label_bmi","BMI")}</strong><br>
+            ${round1(bmi)} • ${bmiCat}
+          </div></div>
+          <div class="card"><div class="pad">
+            <strong>${t("label_tdee","TDEE")}</strong><br>
+            ~${fmt(tdee)} ${t("unit_kcal_day","kcal/day")}
+          </div></div>
+          <div class="card"><div class="pad">
+            <strong>${t("label_goal_cals","Goal Calories")}</strong><br>
+            ~${fmt(targetKcal)} ${t("unit_kcal_day","kcal/day")}
+          </div></div>
         </div>
-        <p class="small" style="margin-top:6px">${t("footer_secure","Secure checkout via QuickBooks")}</p>
-      </div></div>
 
-      <p class="small" style="opacity:.7;margin-top:8px">
-        ${t("acsm_quick_ref","ACSM-style quick reference: Protein ~1.0-2.2 g/kg depending on training/goal; Carbs 3-12 g/kg based on training load; Fat 20-35% of total calories. Hydrate and aim for sufficient micronutrients and fiber.")}
-      </p>
-    </div></div>`;
-  document.getElementById('calcOut').innerHTML = html;
+        <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;margin-top:10px">
+          <div class="card"><div class="pad">
+            <strong>${t("label_protein","Protein")}</strong><br>
+            ${fmt(macros.protein_g)} ${t("unit_g_day","g/day")}
+            <div class="small" style="opacity:.7">~${round1(macros.protein_g / state.kg)} ${t("unit_g_per_kg","g/kg")}</div>
+          </div></div>
+          <div class="card"><div class="pad">
+            <strong>${t("label_carbs","Carbs")}</strong><br>
+            ${fmt(macros.carbs_g)} ${t("unit_g_day","g/day")}
+            <div class="small" style="opacity:.7">${t("label_acsm_band","ACSM band by activity")}</div>
+          </div></div>
+          <div class="card"><div class="pad">
+            <strong>${t("label_fat","Fat")}</strong><br>
+            ${fmt(macros.fat_g)} ${t("unit_g_day","g/day")}
+            <div class="small" style="opacity:.7">~${Math.round(FAT_PCT_DEFAULT*100)}% ${t("unit_of_kcal","of kcal")}</div>
+          </div></div>
+        </div>
+
+        <div class="card" style="margin-top:10px"><div class="pad">
+          <strong>${t("label_meals_per_day","Meals per day")}</strong>: ${meals} (${t("label_avg","avg")} ~${AVG_MEAL_CAL} ${t("unit_kcal_meal","kcal/meal")})
+          <p class="small" style="margin:.3rem 0;opacity:.8">${tips}</p>
+          <div class="actions" style="display:flex;gap:10px;flex-wrap:wrap;margin-top:6px">
+            ${primary ? `<a class="btn" href="${primaryHref}" target="_blank" rel="noopener">${primary.name_en || 'Pack'}</a>` : ''}
+            ${secondary ? `<a class="btn ghost" href="${secondaryHref}" target="_blank" rel="noopener">${secondary.name_en || 'Alt Pack'}</a>` : ''}
+            <a class="btn dark" href="order.html">${t("cta_customize","Customize & Order")}</a>
+          </div>
+          <p class="small" style="margin-top:6px">
+            ${fulfill === 'delivery' ? 'Selected: Delivery (+$15).' : 'Selected: Pickup at F45 (Free).'}
+            ${t("footer_secure","Secure checkout via QuickBooks")}
+          </p>
+        </div></div>
+
+        <p class="small" style="opacity:.7;margin-top:8px">
+          ${t("acsm_quick_ref","ACSM-style quick reference: Protein ~1.0-2.2 g/kg depending on training/goal; Carbs 3-12 g/kg based on training load; Fat 20-35% of total calories.")}
+        </p>
+      </div></div>
+    `;
+    document.getElementById('calcOut').innerHTML = html;
+  }catch(err){
+    console.error('renderPlan failed:', err, state);
+    document.getElementById('calcOut').innerHTML =
+      `<div class="card"><div class="pad">
+        <p class="small" style="color:#b00020">We couldn’t render the plan. Please check your menu.json or try again.</p>
+      </div></div>`;
+  }
 }
+
 
 function goalTips(goal){
   if (goal==='gain') return t("tip_gain","Prioritize protein and total calories; 3-4 balanced meals/day plus a snack can help hit targets.");
