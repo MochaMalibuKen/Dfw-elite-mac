@@ -1,0 +1,44 @@
+{
+  "links": {
+    "google": "https://g.page/r/your-google-place-id/review",
+    "facebook": "https://www.facebook.com/profile.php?id=100090718213321&sk=reviews"
+  },
+  "reviews": [
+    {
+      "name": "Jennifer P.",
+      "rating": 5,
+      "comment": "Every meal I’ve tried has been amazing! Will definitely keep ordering more. Makes for easy, effortless, and healthy meal prep for busy people. You won’t regret it! Great food.",
+      "date": "2025-08-31"
+    },
+    {
+      "name": "Chelsea J.",
+      "rating": 5,
+      "comment": "Hands down some of the best meal preps I’ve ever had! Even though it’s bulk orders you can still taste the homemade meal and love in it!",
+      "date": "2025-08-29"
+    },
+    {
+      "name": "Deboni N.",
+      "rating": 5,
+      "comment": "We just tried our first meals from Elite Meals and they did not disappoint! 10/10 recommend!!!!",
+      "date": "2025-07-02"
+    },
+    {
+      "name": "Lacy C-T",
+      "rating": 5,
+      "comment": "So quick and easy for me to be able to eat healthy. Already portioned and delicious!",
+      "date": "2025-06-18"
+    },
+    {
+      "name": "Hayleigh M.",
+      "rating": 5,
+      "comment": "10/10. Their attention to detail and quality ingredients ensure I stay healthy without sacrificing taste. Elite Meals has become my go-to for convenience and flavor, and I can't recommend them enough!!",
+      "date": "2025-06-17"
+    },
+    {
+      "name": "Ashlyn P.",
+      "rating": 5,
+      "comment": "These guys’ food is amazing!! Everything I’ve had has been awesome!! Makes it so easy to track my intake!",
+      "date": "2024-01-26"
+    }
+  ]
+}
