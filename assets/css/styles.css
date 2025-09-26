@@ -169,13 +169,15 @@ header img.logo {
 }
 
 /* Facebook plugin should scale to container width */
+
 .fb-wrap {
   width: 100%;
   max-width: 600px;    /* you can tweak this */
   margin: 0 auto;
+  @media (max-width: 480px)
 }
 .fb-page { width: 100% !important; }  /* let plugin fill wrapper */
-
+.fb-wrap { max-width: 100%;}
 /* Simple IG button for now */
 .ig-button {
   display: inline-block;
