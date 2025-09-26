@@ -86,54 +86,71 @@
   <div class="container">
     <h2>Follow Us</h2>
 
-    <div class="social-grid">
-      <!-- Facebook (auto-resizes to wrapper) -->
-     <!-- Facebook (resilient) -->
+   <!-- Facebook Feed (desktop/tablet: SDK; mobile: iframe; universal fallback) -->
 <div class="fb-wrap">
   <div id="fb-root"></div>
-  <script async defer crossorigin="anonymous"
-    src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v18.0"></script>
 
-  <div class="fb-page"
-    data-href="https://www.facebook.com/profile.php?id=100090718213321"
-    data-tabs="timeline"
-    data-width="500"
-    data-height="420"
-    data-small-header="true"
-    data-adapt-container-width="true"
-    data-hide-cover="false"
-    data-show-facepile="false">
-    <!-- Fallback that shows if SDK is blocked -->
-    <blockquote class="fb-xfbml-parse-ignore">
-      <a href="https://www.facebook.com/profile.php?id=100090718213321" target="_blank" rel="noopener">
-        See our latest posts on Facebook
-      </a>
-    </blockquote>
+  <!-- Desktop/Tablet embed (hidden on small screens) -->
+  <div id="fb-container" class="fb-desktop">
+    <div class="fb-page"
+      data-href="https://www.facebook.com/profile.php?id=100090718213321"
+      data-tabs="timeline"
+      data-width=""
+      data-height="520"
+      data-small-header="true"
+      data-adapt-container-width="true"
+      data-hide-cover="false"
+      data-show-facepile="false"></div>
   </div>
 
-  <!-- Extra fallback UI if the SDK never renders -->
-  <div id="fb-fallback" hidden class="card" style="margin-top:10px;">
+  <!-- Mobile-first direct iframe (shown on small screens) -->
+  <div class="fb-mobile">
+    <iframe
+      src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fprofile.php%3Fid%3D100090718213321&tabs=timeline&width=360&height=520&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=false"
+      style="border:none;overflow:hidden;width:100%;height:520px"
+      scrolling="no" frameborder="0" allowfullscreen="true"
+      allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
+    </iframe>
+  </div>
+
+  <!-- Fallback if everything is blocked -->
+  <div id="fb-fallback" class="card" style="display:none; margin-top:10px;">
     <div class="pad">
-      <strong>Facebook feed unavailable on this device.</strong><br>
-      <a class="btn" href="https://www.facebook.com/profile.php?id=100090718213321" target="_blank" rel="noopener">
+      <strong>Follow us on Facebook</strong>
+      <p class="small" style="margin:.4rem 0 0">See our latest meals and updates.</p>
+      <a class="btn" href="https://www.facebook.com/profile.php?id=100090718213321&sk=posts" target="_blank" rel="noopener">
         Open Facebook Page
       </a>
     </div>
   </div>
 </div>
 
+<!-- Load SDK once (for desktop/tablet) + show fallback if it fails -->
 <script>
-  // If the FB widget doesn't create an iframe within 2.5s (common on iOS with tracking protection),
-  // reveal the fallback button.
+  (function loadFB(){
+    if (document.getElementById('facebook-jssdk')) return;
+    window.fbAsyncInit = function(){ try{ FB.init({xfbml:true, version:'v18.0'}); }catch(e){} };
+    var js=document.createElement('script'); js.id='facebook-jssdk';
+    js.src='https://connect.facebook.net/en_US/sdk.js';
+    document.body.appendChild(js);
+  })();
+
+  // Fallback if neither iframe nor SDK render
   window.addEventListener('load', function(){
     setTimeout(function(){
-      var hasIframe = document.querySelector('.fb-page iframe');
-      var fallback = document.getElementById('fb-fallback');
-      if (!hasIframe && fallback) fallback.hidden = false;
-    }, 2500);
+      var iframeOK = document.querySelector('.fb-mobile iframe');
+      var sdkOK = document.querySelector('.fb-page iframe');
+      if (!iframeOK && !sdkOK) {
+        var fbCont = document.getElementById('fb-container');
+        var fbMob = document.querySelector('.fb-mobile');
+        var fbFall = document.getElementById('fb-fallback');
+        if (fbCont) fbCont.style.display='none';
+        if (fbMob) fbMob.style.display='none';
+        if (fbFall) fbFall.style.display='block';
+      }
+    }, 3000);
   });
 </script>
-
       <!-- Extra fallback UI if the SDK never renders -->
       <div id="fb-fallback" hidden class="card" style="margin-top:10px;">
         <div class="pad">

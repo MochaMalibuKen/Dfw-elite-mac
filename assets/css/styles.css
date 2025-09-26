@@ -169,15 +169,18 @@ header img.logo {
 }
 
 /* Facebook plugin should scale to container width */
+.fb-wrap { width:100%; max-width:600px; margin:0 auto; }
+.fb-page { width:100% !important; } /* desktop/tablet plugin fills container */
 
-.fb-wrap {
-  width: 100%;
-  max-width: 600px;    /* you can tweak this */
-  margin: 0 auto;
-  @media (max-width: 480px)
+/* Show SDK embed on >=481px, iframe on <=480px */
+.fb-desktop { display:block; }
+.fb-mobile  { display:none; }
+
+@media (max-width: 480px){
+  .fb-desktop { display:none; }
+  .fb-mobile  { display:block; }
+  .fb-wrap    { max-width:100%; }
 }
-.fb-page { width: 100% !important; }  /* let plugin fill wrapper */
-.fb-wrap { max-width: 100%;}
 /* Simple IG button for now */
 .ig-button {
   display: inline-block;
