@@ -299,3 +299,41 @@ img.logo { max-height: 56px; height: auto; width: auto; }
   border-radius: .4rem;
   margin-bottom: 8px;
 }
+/* Ambassadors grid – responsive columns */
+.amb-grid{
+  display:grid; gap:14px;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  align-items: start;
+}
+
+/* Card + photo frame */
+.amb-card{
+  border:1px solid #eee; border-radius:14px; overflow:hidden; background:#fff;
+  box-shadow:0 2px 10px rgba(0,0,0,.03);
+  display:flex; flex-direction:column;
+}
+
+.amb-photo{
+  aspect-ratio: 4 / 5;     /* force portrait box */
+  background:#f3f3f3;
+  overflow:hidden;
+}
+
+.amb-photo img{
+  width:100%;
+  height:100%;
+  object-fit:cover;         /* crop to frame */
+  display:block;            /* remove baseline gap */
+}
+
+/* Content */
+.amb-pad{ padding:12px; }
+.amb-name{ font-weight:800; margin:0 0 4px 0; }
+.amb-meta{ font-size:.9rem; color:#666; margin:0 0 8px 0; }
+.amb-bio{ font-size:.95rem; color:#333; margin:0 0 10px 0; }
+
+/* Optional: cap any single card’s width on ultra-wide monitors */
+@media (min-width: 1280px){
+  .amb-grid { grid-auto-rows: 1fr; }
+  .amb-card { max-width: 420px; margin: 0 auto; }
+}
