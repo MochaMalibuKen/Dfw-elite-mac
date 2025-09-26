@@ -1,21 +1,109 @@
-<script src="assets/js/chrome.js"></script>
-<script src="assets/js/i18n.js"></script>
-<!-- Chat widget -->
-<div id="chat-fab" class="chat-fab" aria-label="Open chat" role="button" tabindex="0">💬</div>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Catering • DFW Elite Meals</title>
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <meta name="theme-color" content="#E91E63">
+</head>
+<body>
+  <!-- Nav + i18n -->
+  <script src="assets/js/chrome.js"></script>
+  <script src="assets/js/i18n.js"></script>
 
-<div id="chat-panel" class="chat-panel" aria-hidden="true">
-  <div class="chat-head">
-    <strong>Chat with DFW Elite</strong>
-    <button id="chat-close" class="chat-close" aria-label="Close">×</button>
+  <section class="section">
+    <div class="container">
+      <h1>Catering</h1>
+      <p class="small" style="margin-top:-6px;opacity:.85">
+        For all catering inquiries, please contact us directly. We’d love to plan your event.
+      </p>
+
+      <!-- Direct contact actions -->
+      <div class="card" style="margin-top:10px">
+        <div class="pad">
+          <div class="actions" style="display:flex;gap:12px;flex-wrap:wrap">
+            <!-- TODO: replace phone/email -->
+            <a class="btn" href="tel:+19720000000">Call Us</a>
+            <a class="btn ghost" href="mailto:info@dfwelitemeals.com?subject=Catering%20Inquiry">Email Us</a>
+          </div>
+          <ul class="small" style="margin:.8rem 0 0;line-height:1.5">
+            <li><strong>Notice:</strong> For weddings and large events, 6-month notice recommended.</li>
+            <li><strong>Deposit:</strong> 50% to reserve your date; remaining balance due 30 days before.</li>
+            <li><strong>Menu:</strong> Custom menu build-outs available (steak pricing varies with market).</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Short inquiry form (optional) -->
+      <div class="card" style="margin-top:14px">
+        <div class="pad">
+          <h3 style="margin:0 0 8px">Quick Catering Inquiry</h3>
+          <form id="contactForm" class="form" data-form="catering" style="max-width:700px">
+            <input type="text" name="_trap" autocomplete="off" style="display:none">
+            <label>Your Name</label>
+            <input name="name" required placeholder="Full name">
+
+            <label>Email</label>
+            <input name="email" type="email" required placeholder="you@example.com" autocapitalize="off">
+
+            <label>Phone (optional)</label>
+            <input name="phone" type="tel" placeholder="(###) ###-####">
+
+            <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px">
+              <div>
+                <label>Event Date</label>
+                <input name="event_date" type="date">
+              </div>
+              <div>
+                <label>Guest Count</label>
+                <input name="guests" type="number" min="10" placeholder="e.g., 120">
+              </div>
+              <div>
+                <label>Service Type</label>
+                <select name="service">
+                  <option>Dropped Off</option>
+                  <option>Buffet</option>
+                  <option>Plated</option>
+                  <option>Undecided</option>
+                </select>
+              </div>
+            </div>
+
+            <label>Notes</label>
+            <textarea name="message" rows="4" placeholder="Venue, dietary needs, budget, etc."></textarea>
+
+            <div style="display:flex;gap:10px;align-items:center;margin-top:10px">
+              <button class="btn" type="submit" id="contactBtn">Send Inquiry</button>
+              <span id="contactMsg" class="small" aria-live="polite"></span>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Chat widget -->
+  <div id="chat-fab" class="chat-fab" aria-label="Open chat" role="button" tabindex="0">💬</div>
+  <div id="chat-panel" class="chat-panel" aria-hidden="true">
+    <div class="chat-head">
+      <strong>Chat with DFW Elite</strong>
+      <button id="chat-close" class="chat-close" aria-label="Close">×</button>
+    </div>
+    <form id="chat-form" class="chat-body">
+      <input name="name" type="text" placeholder="Your name" required>
+      <input name="email" type="email" placeholder="Email (for reply)" required>
+      <textarea name="message" rows="4" placeholder="How can we help?" required></textarea>
+      <button class="btn" type="submit">Send</button>
+      <div id="chat-status" class="small" style="margin-top:6px;opacity:.8"></div>
+      <div class="small" style="margin-top:10px;text-align:center">
+        Prefer email directly?
+        <a href="mailto:info@dfwelitemeals.com?subject=Catering%20Inquiry">Click here</a>
+      </div>
+    </form>
   </div>
 
-  <form id="chat-form" class="chat-body">
-    <input name="name" type="text" placeholder="Your name" required>
-    <input name="email" type="email" placeholder="Email (for reply)" required>
-    <textarea name="message" rows="4" placeholder="How can we help?" required></textarea>
-    <button class="btn" type="submit">Send</button>
-    <div id="chat-status" class="small" style="margin-top:6px;opacity:.8"></div>
-  </form>
-</div>
-
-<script src="assets/js/chat.js"></script>
+  <script src="assets/js/contact.js"></script>
+  <script src="assets/js/chat.js"></script>
+</body>
+</html>
