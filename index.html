@@ -81,10 +81,6 @@
     <div class="social-grid">
       <!-- Facebook (auto-resizes to wrapper) -->
      <!-- Facebook (resilient) -->
- <!-- ✅ Social Feed section -->
-  <section class="section">
-  <div class="container">
-    <h2>Follow Us</h2>
 
    <!-- Facebook Feed (desktop/tablet: SDK; mobile: iframe; universal fallback) -->
 <div class="fb-wrap">
@@ -149,27 +145,6 @@
         if (fbFall) fbFall.style.display='block';
       }
     }, 3000);
-  });
-</script>
-      <!-- Extra fallback UI if the SDK never renders -->
-      <div id="fb-fallback" hidden class="card" style="margin-top:10px;">
-        <div class="pad">
-          <strong>Facebook feed unavailable on this device.</strong><br>
-          <a class="btn" href="https://www.facebook.com/profile.php?id=100090718213321" target="_blank" rel="noopener">
-            Open Facebook Page
-          </a>
-        </div>
-      </div>
-    </div>
-<script>
-  // If the FB widget doesn't create an iframe within 2.5s (common on iOS with tracking protection),
-  // reveal the fallback button.
-  window.addEventListener('load', function(){
-    setTimeout(function(){
-      var hasIframe = document.querySelector('.fb-page iframe');
-      var fallback = document.getElementById('fb-fallback');
-      if (!hasIframe && fallback) fallback.hidden = false;
-    }, 2500);
   });
 </script>
 
