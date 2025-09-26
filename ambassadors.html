@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ambassadors | DFW Elite Meals</title>
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <meta name="theme-color" content="#E91E63">
+</head>
+<body>
+  <!-- Nav + i18n -->
+  <script src="assets/js/chrome.js"></script>
+  <script src="assets/js/i18n.js"></script>
+
+  <section class="section">
+    <div class="container">
+      <h1 data-i18n="amb_title">Ambassadors</h1>
+      <p class="small" data-i18n="amb_intro">
+        Real customers and athletes who fuel with DFW Elite. Full profiles rolling out.
+      </p>
+
+      <!-- Cards mount here -->
+      <div id="ambGrid" class="amb-grid"></div>
+    </div>
+  </section>
+
+  <!-- Chat widget -->
+  <div id="chat-fab" class="chat-fab" aria-label="Open chat" role="button" tabindex="0">💬</div>
+  <div id="chat-panel" class="chat-panel" aria-hidden="true">
+    <div class="chat-head">
+      <strong>Chat with DFW Elite</strong>
+      <button id="chat-close" class="chat-close" aria-label="Close">×</button>
+    </div>
+    <form id="chat-form" class="chat-body">
+      <input name="name" type="text" placeholder="Your name" required>
+      <input name="email" type="email" placeholder="Email (for reply)" required>
+      <textarea name="message" rows="4" placeholder="How can we help?" required></textarea>
+      <button class="btn" type="submit">Send</button>
+      <div id="chat-status" class="small" style="margin-top:6px;opacity:.8"></div>
+      <div class="small" style="margin-top:10px;text-align:center">
+        Prefer email directly?
+        <a href="mailto:info@dfwelitemeals.com?subject=DFW%20Elite%20Chat%20Inquiry">Click here</a>
+      </div>
+    </form>
+  </div>
+
+  <!-- Page scripts -->
+  <script src="assets/js/ambassadors.js"></script>
+  <script src="assets/js/chat.js"></script>
+</body>
+</html>

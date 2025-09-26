@@ -1,13 +1,15 @@
 {
   "nav_menu": "Menú",
   "nav_calc": "Calculadora",
-  "nav_athletes": "Atletas",
+  "nav_ambassadors": "Embajadores",
+  "amb_title": "Embajadores",
+  "amb_intro": "Clientes y atletas reales que se alimentan con DFW Elite. Perfiles completos próximamente.",
   "nav_catering": "Catering",
   "nav_reviews": "Reseñas",
   "nav_contact": "Contacto",
   "nav_order_now": "Ordenar",
 
-  "hero_title": "Comidas Élite, Hechas para Ti",
+  "hero_title": "Comidas y Catering Élite, Hechas para Ti",
   "hero_body": "Comidas enfocadas en el rendimiento para atletas de DFW y quienes comen saludable. Nuevas opciones cada semana. Pedido móvil fácil.",
 
   "how_it_works": "Cómo funciona",

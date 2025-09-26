@@ -1,13 +1,15 @@
 {
   "nav_menu": "Menu",
   "nav_calc": "Calculator",
-  "nav_athletes": "Athletes",
+  "nav_ambassadors": "Ambassadors",
+  "amb_title": "Ambassadors",
+  "amb_intro": "Real customers and athletes who fuel with DFW Elite. Full profiles rolling out.""nav_athletes": "Athletes",
   "nav_catering": "Catering",
   "nav_reviews": "Reviews",
   "nav_contact": "Contact",
   "nav_order_now": "Order Now",
 
-  "hero_title": "Elite Meals, Built for You",
+  "hero_title": "Elite Meals and Catering, Built for You",
   "hero_body": "Performance-focused meals for DFW athletes and healthy eaters. Fresh drops weekly. Mobile-first ordering.",
 
   "how_it_works": "How it works",

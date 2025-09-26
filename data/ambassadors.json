@@ -1,0 +1,52 @@
+{
+  "ambassadors": [
+    {
+      "name": "Jeremie",
+      "role": "Trainer • 13 Years Experience",
+      "photo": "assets/img/jeremie.jpg",
+      "bio": "With 13 years of training experience, Jeremie's passion for health and fitness runs deep. Outside the gym, he enjoys time with his wife, sons, and bonus sons, riding motorcycles, and watching movies and anime. Jeremie is eager to share his journey and showcase the awesome meals Elite Meals and Catering provides.",
+      "socials": {
+        "facebook": "",
+        "instagram": ""
+      }
+    },
+    {
+      "name": "Marisol",
+      "role": "CrossFit • Full-time Mom",
+      "photo": "assets/img/marisol.jpg",
+      "bio": "A full-time working wife and proud mom of two, Marisol makes fitness a priority in her busy lifestyle. From CrossFit and lifting to keeping up with her kids’ soccer schedules, she brings balance, energy, and dedication to everything she does.",
+      "socials": {
+        "facebook": "https://www.facebook.com/marisol.chavez.12",
+        "instagram": ""
+      }
+    },
+    {
+      "name": "Lacy Beckler",
+      "role": "CrossFit Competitor • CF-L1 Trainer",
+      "photo": "assets/img/lacy.jpg",
+      "bio": "A lifelong fitness enthusiast and former track & field athlete turned CrossFit competitor, Lacy has been active in the sport since 2013 and is a certified CF-L1 Trainer. Outside the gym, she travels, does DIY projects, gardens, and enjoys time with family, friends, and her four pups. With 20 years in public education and now a Project Manager for Mansfield ISD, she balances a busy career with passion for fitness, faith, and life.",
+      "socials": {
+        "facebook": "https://www.facebook.com/lacy.",
+        "instagram": ""
+      }
+    },
+    {
+      "name": "Macaela",
+      "role": "Powerlifter • Future Figure Competitor",
+      "photo": "assets/img/macaela.jpg",
+      "bio": "With a background in powerlifting, Macaela is training for her first figure competition under the guidance of her coach, David Cuff. She’s also a real estate agent and a master’s student at Tarleton, balancing big goals with an even bigger schedule. By her side is her German Shepherd, Veena, and when she’s not working or training, she’s probably at a country concert.",
+      "socials": {
+        "facebook": "https://www.facebook.com/macaelas",
+        "instagram": ""
+      }
+    },
+    {
+      "name": "More Coming Soon",
+      "role": "Elite MAC Ambassador",
+      "photo": "assets/img/amb-placeholder.jpg",
+      "bio": "Stay tuned — more inspiring Elite Meals and Catering Ambassadors will be joining the team soon!",
+      "socials": {},
+      "placeholder": true
+    }
+  ]
+}
