@@ -88,39 +88,46 @@ function attachCardHandlers(){
   });
 }
 
-// ----- ATHLETES RENDER -----
-async function loadAthletes(){
-  const grid = document.getElementById('athletes');
+/// ----- AMBASSADORS RENDER -----
+async function loadAmbassadors(){
+  const grid = document.getElementById('athletes');  // keep same ID for backwards compat
   if(!grid) return;
 
-  let data;
   try{
-    const res = await fetch('data/athletes.json');
-    data = await res.json();
-  }catch(e){
-    console.error('athletes.json failed to load', e);
-    return;
-  }
+    const res = await fetch('data/ambassadors.json');
+    const data = await res.json();
+    const list = Array.isArray(data) ? data : (data.ambassadors || []);
 
-  const list = Array.isArray(data) ? data : (data.athletes || []);
+    grid.innerHTML = list.map(a => {
+      const classes = ['card'];
+      if (a.featured) classes.push('featured');
+      if (a.theme) classes.push(`theme-${a.theme}`);
 
-  grid.innerHTML = list.map(a => `
-    <div class="card">
-      <img src="${a.photo || 'assets/img/placeholder.jpg'}" alt="${a.name_en||'Coming Soon'}" style="width:100%;height:200px;object-fit:cover">
-      <div class="pad">
-        <h3>${a.name_en || 'Coming Soon'}</h3>
-        <p class="small">${a.sport || 'Fitness Ambassador'}</p>
-        <div style="margin-top:.5rem">
-          ${a.ig && a.ig !== '#' ? `<a class="btn ghost" href="${a.ig}" target="_blank" rel="noopener">Instagram</a>` : `<span class="small">Coming Soon</span>`}
+      return `
+        <div class="${classes.join(' ')}">
+          <img src="${a.photo || 'assets/img/placeholder.jpg'}" 
+               alt="${a.name || 'Ambassador'}" 
+               style="width:100%;height:220px;object-fit:cover;border-top-left-radius:14px;border-top-right-radius:14px;">
+          <div class="pad">
+            <h3>${a.name || 'Coming Soon'}</h3>
+            <p class="small">${a.role || ''}</p>
+            <p>${a.bio || ''}</p>
+            <div style="margin-top:.5rem;display:flex;gap:.5rem;flex-wrap:wrap">
+              ${a.socials?.facebook ? `<a class="btn ghost" href="${a.socials.facebook}" target="_blank" rel="noopener">Facebook</a>` : ''}
+              ${a.socials?.instagram ? `<a class="btn ghost" href="${a.socials.instagram}" target="_blank" rel="noopener">Instagram</a>` : ''}
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
-  `).join('');
+      `;
+    }).join('');
+  } catch(e){
+    console.error('ambassadors.json failed to load', e);
+  }
 }
 
 // Load whichever sections exist on the page
 document.addEventListener('DOMContentLoaded', ()=>{
   loadMenu();
-  loadAthletes();
+  loadAmbassadors();
 });
 

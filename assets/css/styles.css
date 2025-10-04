@@ -355,3 +355,23 @@ img.logo { max-height: 56px; height: auto; width: auto; }
 .menu a[href="menu.html"] {
   display: none !important;
 }
+#menuCtaHome .btn, #menuCtaOrder .btn {
+  font-weight: 800;
+}
+/* Featured ambassador styles */
+.card.featured {
+  border: 2px solid var(--brand-primary);
+  box-shadow: 0 4px 14px rgba(233,30,99,.15);
+}
+
+/* Maci – pink theme */
+.card.featured.theme-pink {
+  background: linear-gradient(145deg, #fff0f7, #ffe1ec);
+  border-color: #e91e63;
+}
+
+/* David – gold theme */
+.card.featured.theme-gold {
+  background: linear-gradient(145deg, #fff8e1, #ffefb8);
+  border-color: #f9b500;
+}

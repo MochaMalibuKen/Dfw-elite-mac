@@ -1,5 +1,32 @@
 {
+  {
   "ambassadors": [
+    {
+      "name": "Maci Schoonover",
+      "role": "Elite Meal Ambassador • Coach",
+      "bio": "WE WOULD LIKE TO PROUDLY INTRODUCE- MACI!!!\n\n“Hi - my name is Maci or “mace” and I have been in the fitness industry for about 5 years. I am a retired D1 Athlete who’s passion for whole food nutrition runs deep. My goal for this group is to inspire, motivate and cultivate healthy living...",
+      "photo": "assets/img/maci.jpg",
+      "featured": true,
+      "theme": "pink",
+      "socials": {
+        "instagram": "",
+        "facebook": ""
+      }
+    },
+    {
+      "name": "David",
+      "role": "Head Coach & Nutrition Guide",
+      "bio": "🌟 Meet David! Elite Meals & Catering partnered with David a few months ago, and together we're revolutionizing the health and wellness world one meal at a time...",
+      "photo": "assets/img/david.jpg",
+      "featured": true,
+      "theme": "gold",
+      "socials": {
+        "instagram": "",
+        "facebook": ""
+      }
+    },
+    
+    },
     {
       "name": "Jeremie",
       "role": "Trainer • 13 Years Experience",
