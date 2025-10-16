@@ -422,3 +422,91 @@ img.logo { max-height: 56px; height: auto; width: auto; }
   display: inline-block;
   padding-bottom: 2px;
 }
+/* Ensure theme styles win on the ambassadors grid */
+#athletes .card.featured.theme-gold {
+  border: 2px solid #f9b500 !important;
+  background: linear-gradient(145deg, #fff8e1, #fff3b0) !important;
+  box-shadow: 0 0 0 2px rgba(249,181,0,.25) inset, 0 8px 24px rgba(0,0,0,.12);
+}
+#athletes .card.featured.theme-gold h3 {
+  color: #c79500 !important;
+  border-bottom: 2px solid #f9b500 !important;
+  display: inline-block;
+  padding-bottom: 2px;
+}
+
+#athletes .card.featured.theme-pink {
+  border: 2px solid #E91E63 !important;
+  background: linear-gradient(145deg, #fff5f9, #ffe3ee) !important;
+  box-shadow: 0 0 0 2px rgba(233,30,99,.2) inset, 0 8px 24px rgba(0,0,0,.12);
+}
+#athletes .card.featured.theme-pink h3 {
+  color: #E91E63 !important;
+  border-bottom: 2px solid #E91E63 !important;
+  display: inline-block;
+  padding-bottom: 2px;
+}
+/* Apply hover + crown to both layouts */
+.card.featured,
+.amb-card.featured {
+  position: relative;
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+.card.featured:hover,
+.amb-card.featured:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 24px rgba(0,0,0,.15);
+}
+
+/* Crown */
+.card.featured::before,
+.amb-card.featured::before {
+  content: "👑";
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  font-size: 1.5rem;
+  z-index: 2;
+  filter: drop-shadow(1px 1px 2px rgba(0,0,0,.3));
+}
+
+/* Theme crowns */
+.card.featured.theme-gold::before,
+.amb-card.featured.theme-gold::before { color: #f9b500; }
+.card.featured.theme-pink::before,
+.amb-card.featured.theme-pink::before { color: #E91E63; }
+
+/* Themed accents – both layouts */
+.card.featured.theme-gold,
+.amb-card.featured.theme-gold {
+  border: 2px solid #f9b500 !important;
+  background: linear-gradient(145deg, #fff8e1, #fff3b0) !important;
+  box-shadow: 0 0 0 2px rgba(249,181,0,.25) inset, 0 8px 24px rgba(0,0,0,.12);
+}
+.card.featured.theme-gold h3,
+.amb-card.featured.theme-gold .amb-name {
+  color: #c79500 !important;
+  border-bottom: 2px solid #f9b500 !important;
+  display: inline-block;
+  padding-bottom: 2px;
+}
+
+.card.featured.theme-pink,
+.amb-card.featured.theme-pink {
+  border: 2px solid #E91E63 !important;
+  background: linear-gradient(145deg, #fff5f9, #ffe3ee) !important;
+  box-shadow: 0 0 0 2px rgba(233,30,99,.2) inset, 0 8px 24px rgba(0,0,0,.12);
+}
+.card.featured.theme-pink h3,
+.amb-card.featured.theme-pink .amb-name {
+  color: #E91E63 !important;
+  border-bottom: 2px solid #E91E63 !important;
+  display: inline-block;
+  padding-bottom: 2px;
+}
+
+/* Mobile tweak */
+@media (max-width: 600px){
+  .card.featured::before,
+  .amb-card.featured::before { font-size: 1.3rem; top: 6px; right: 8px; }
+}

@@ -90,40 +90,62 @@ function attachCardHandlers(){
 
 /// ----- AMBASSADORS RENDER -----
 async function loadAmbassadors(){
-  const grid = document.getElementById('athletes');  // keep same ID for backwards compat
+  // Support both IDs (new: ambGrid with amb-* classes, old: athletes with card)
+  const grid = document.getElementById('ambGrid') || document.getElementById('athletes');
   if(!grid) return;
 
   try{
-    const res = await fetch('data/ambassadors.json');
+    const res = await fetch('data/ambassadors.json', { cache: 'no-store' });
     const data = await res.json();
     const list = Array.isArray(data) ? data : (data.ambassadors || []);
 
+    const useAmb = grid.id === 'ambGrid'; // if true, use amb-* classes
     grid.innerHTML = list.map(a => {
-      const classes = ['card'];
-      if (a.featured) classes.push('featured');
-      if (a.theme) classes.push(`theme-${a.theme}`);
-
-      return `
-        <div class="${classes.join(' ')}">
-          <img src="${a.photo || 'assets/img/placeholder.jpg'}" 
-               alt="${a.name || 'Ambassador'}" 
-               style="width:100%;height:220px;object-fit:cover;border-top-left-radius:14px;border-top-right-radius:14px;">
-          <div class="pad">
-            <h3>${a.name || 'Coming Soon'}</h3>
-            <p class="small">${a.role || ''}</p>
-            <p>${a.bio || ''}</p>
-            <div style="margin-top:.5rem;display:flex;gap:.5rem;flex-wrap:wrap">
-              ${a.socials?.facebook ? `<a class="btn ghost" href="${a.socials.facebook}" target="_blank" rel="noopener">Facebook</a>` : ''}
-              ${a.socials?.instagram ? `<a class="btn ghost" href="${a.socials.instagram}" target="_blank" rel="noopener">Instagram</a>` : ''}
+      const isFeatured = a.featured ? 'featured' : '';
+      const theme = a.theme ? `theme-${a.theme}` : '';
+      if (useAmb){
+        // amb-* layout (matches your CSS above)
+        return `
+          <article class="amb-card ${isFeatured} ${theme}">
+            <div class="amb-photo">
+              <img src="${a.photo || 'assets/img/placeholder.jpg'}" alt="${a.name || 'Ambassador'}">
+            </div>
+            <div class="amb-pad">
+              <h3 class="amb-name">${a.name || 'Coming Soon'}</h3>
+              <p class="amb-meta">${a.role || ''}</p>
+              <p class="amb-bio">${a.bio || ''}</p>
+              <div style="margin-top:.5rem;display:flex;gap:.5rem;flex-wrap:wrap">
+                ${a.socials?.facebook ? `<a class="btn ghost" href="${a.socials.facebook}" target="_blank" rel="noopener">Facebook</a>` : ''}
+                ${a.socials?.instagram ? `<a class="btn ghost" href="${a.socials.instagram}" target="_blank" rel="noopener">Instagram</a>` : ''}
+              </div>
+            </div>
+          </article>
+        `;
+      } else {
+        // legacy .card layout
+        return `
+          <div class="card ${isFeatured} ${theme}">
+            <img src="${a.photo || 'assets/img/placeholder.jpg'}" 
+                 alt="${a.name || 'Ambassador'}" 
+                 style="width:100%;height:220px;object-fit:cover;border-top-left-radius:14px;border-top-right-radius:14px;">
+            <div class="pad">
+              <h3>${a.name || 'Coming Soon'}</h3>
+              <p class="small">${a.role || ''}</p>
+              <p>${a.bio || ''}</p>
+              <div style="margin-top:.5rem;display:flex;gap:.5rem;flex-wrap:wrap">
+                ${a.socials?.facebook ? `<a class="btn ghost" href="${a.socials.facebook}" target="_blank" rel="noopener">Facebook</a>` : ''}
+                ${a.socials?.instagram ? `<a class="btn ghost" href="${a.socials.instagram}" target="_blank" rel="noopener">Instagram</a>` : ''}
+              </div>
             </div>
           </div>
-        </div>
-      `;
+        `;
+      }
     }).join('');
   } catch(e){
     console.error('ambassadors.json failed to load', e);
   }
 }
+
 
 // Load whichever sections exist on the page
 document.addEventListener('DOMContentLoaded', ()=>{
