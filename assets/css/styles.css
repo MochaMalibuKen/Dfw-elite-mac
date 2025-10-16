@@ -359,19 +359,66 @@ img.logo { max-height: 56px; height: auto; width: auto; }
   font-weight: 800;
 }
 /* Featured ambassador styles */
+/* Featured base */
+/* --- Featured hover lift --- */
 .card.featured {
-  border: 2px solid var(--brand-primary);
-  box-shadow: 0 4px 14px rgba(233,30,99,.15);
+  position: relative;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
+.card.featured:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+/* --- Default crown (fallback) --- */
+.card.featured::before {
+  content: "👑";
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  font-size: 1.5rem;
+  z-index: 2;
+  filter: drop-shadow(1px 1px 2px rgba(0,0,0,0.3));
+}
+
+/* --- Theme-matched crowns --- */
+.card.featured.theme-gold::before {
+  color: #f9b500;        /* gold crown for David */
+}
+.card.featured.theme-pink::before {
+  color: #E91E63;        /* pink crown for Maci */
+}
+
+/* Optional: adjust placement for mobile */
+@media(max-width: 600px) {
+  .card.featured::before {
+    font-size: 1.3rem;
+    top: 6px;
+    right: 8px;
+  }
+}
+/* --- Theme accents for featured ambassadors --- */
 
 /* Maci – pink theme */
 .card.featured.theme-pink {
-  background: linear-gradient(145deg, #fff0f7, #ffe1ec);
-  border-color: #e91e63;
+  border: 2px solid #E91E63;
+  background: linear-gradient(145deg, #fff5f9, #ffe3ee);
+}
+.card.featured.theme-pink h3 {
+  color: #E91E63;
+  border-bottom: 2px solid #E91E63;
+  display: inline-block;
+  padding-bottom: 2px;
 }
 
 /* David – gold theme */
 .card.featured.theme-gold {
-  background: linear-gradient(145deg, #fff8e1, #ffefb8);
-  border-color: #f9b500;
+  border: 2px solid #f9b500;
+  background: linear-gradient(145deg, #fff8e1, #fff3b0);
+}
+.card.featured.theme-gold h3 {
+  color: #c79500;
+  border-bottom: 2px solid #f9b500;
+  display: inline-block;
+  padding-bottom: 2px;
 }
