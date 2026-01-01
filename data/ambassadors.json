@@ -65,6 +65,26 @@
       }
     },
     {
+      "name": "Sydney Sonnier",
+      "role": "Nurse • Nursing Student • CrossFit",
+      "bio": "Full-time nurse at Baylor Scott & White, nursing student, and former trainer who still crushes CrossFit. She keeps it real about balancing clean eating with packed shifts, sharing unboxings and quick bites to show how KOA Mealpreps fits busy lives. Her mission: stay consistent with nutrition and training while helping others see healthy eating can fit any schedule.",
+      "photo": "assets/img/sydney.jpeg",
+      "socials": {
+        "facebook": "",
+        "instagram": "https://www.instagram.com/sydneysonnier/"
+      }
+    },
+    {
+      "name": "Hannah Skinner",
+      "role": "Nurse • Mom of Two • HYROX Training",
+      "bio": "Full-time nurse at Baylor Scott & White Waxahachie, devoted mom, and master’s student training for HYROX with her husband. KOA Mealpreps keeps her nutrition locked in between shifts and family time, and she leads by example at the hospital with healthy, ready-to-go meals. Passionate about fitness, family, and sharing brands she truly believes in.",
+      "photo": "assets/img/hannah.jpeg",
+      "socials": {
+        "facebook": "",
+        "instagram": "https://www.instagram.com/hannah.skinner19/"
+      }
+    },
+    {
       "name": "More Coming Soon",
       "role": "Elite MAC Ambassador",
       "bio": "More inspiring Elite Meals & Catering Ambassadors will be joining the team soon—stay tuned.",
