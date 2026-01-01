@@ -38,6 +38,23 @@
   <script src="assets/js/chrome.js"></script>
   <script src="assets/js/i18n.js"></script>
 
+  <div class="fireworks" id="fireworks"></div>
+
+  <div class="ny-banner" id="nyBanner">
+    <div class="container">
+      <div class="ny-copy">
+        <span class="ny-pill">Happy New Year</span>
+        <h2 class="ny-title">Happy New Year from KOA</h2>
+        <p class="ny-sub">Fuel your goals with fresh meals and new ambassadors, ready to help you crush 2025.</p>
+        <div class="ny-actions">
+          <a class="btn sm" href="menu.html">Order now</a>
+          <a class="btn ghost sm" href="contact.html">Chat with us</a>
+        </div>
+      </div>
+      <button class="ny-close" id="nyClose" aria-label="Dismiss New Year banner">×</button>
+    </div>
+  </div>
+
   <header class="hero hero-bg">
   <div class="container wrap">
     <div class="hero-text">
@@ -171,6 +188,10 @@
   <script src="assets/js/render.js"></script>
   <script>
 document.addEventListener('DOMContentLoaded', ()=>{
+  const banner = document.getElementById('nyBanner');
+  const close = document.getElementById('nyClose');
+  close?.addEventListener('click', ()=> banner?.remove());
+
   const el = document.querySelector('.hero-bg');
   if(!el) return;
 
@@ -190,6 +211,38 @@ document.addEventListener('DOMContentLoaded', ()=>{
     i = (i + 1) % IMGS.length;
     setBG(IMGS[i]);
   }, 6000);
+
+  // Fireworks bursts (lightweight, auto-ends)
+  const fwRoot = document.getElementById('fireworks');
+  const colors = ['#E91E63', '#FFD9E4', '#ffffff', '#f9b500'];
+  let bursts = 0;
+  function launchFirework(){
+    if(!fwRoot) return;
+    bursts++;
+    const burst = document.createElement('div');
+    burst.className = 'fw-burst';
+    burst.style.left = `${20 + Math.random()*60}%`;
+    burst.style.top = `${15 + Math.random()*50}%`;
+    const particles = 14 + Math.floor(Math.random()*8);
+    for(let p=0; p<particles; p++){
+      const part = document.createElement('div');
+      part.className = 'fw-particle';
+      const angle = (Math.PI * 2 * p) / particles;
+      const speed = 40 + Math.random()*35;
+      const dx = Math.cos(angle)*speed;
+      const dy = Math.sin(angle)*speed;
+      part.style.setProperty('--dx', `${dx}px`);
+      part.style.setProperty('--dy', `${dy}px`);
+      part.style.background = colors[Math.floor(Math.random()*colors.length)];
+      part.style.animationDelay = `${Math.random()*0.1}s`;
+      burst.appendChild(part);
+    }
+    fwRoot.appendChild(burst);
+    setTimeout(()=> burst.remove(), 1400);
+    if(bursts >= 12) clearInterval(fwInterval);
+  }
+  const fwInterval = setInterval(launchFirework, 1200);
+  launchFirework();
 });
 </script>
 
