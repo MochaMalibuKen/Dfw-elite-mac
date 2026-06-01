@@ -43,7 +43,7 @@
   <div class="ny-banner" id="nyBanner">
     <div class="container">
       <div class="ny-copy">
-        <span class="ny-pill">USA 250 Celebration</span>
+        <span class="ny-pill">🇺🇸 USA 250 Celebration</span>
         <h2 class="ny-title">Celebrating America’s 250th Birthday</h2>
         <p class="ny-sub">This June, fuel your summer with fresh meals and catering for graduations, cookouts, and July 4th events.</p>
         <div class="ny-actions">
@@ -101,6 +101,7 @@
 </div>
   <section class="section">
   <div class="container">
+    <p class="small" style="margin:0 0 6px;letter-spacing:.04em;text-transform:uppercase;opacity:.8">Honoring America 250 • Est. 1776</p>
     <h2>Follow Us</h2>
     <script>
       window.SOCIAL_LINKS = {
@@ -112,11 +113,17 @@
     <div class="social-grid">
       <!-- Instagram feed (supported embed style + fallback) -->
 <div class="ig-wrap">
-  <div class="ig-embed-list" id="igEmbedList">
-    <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/reel/DY-ahdrK9t3/" data-instgrm-version="14" style="background:#FFF;border:0;border-radius:12px;box-shadow:0 1px 10px rgba(0,0,0,.08);margin:0 auto 12px;max-width:540px;min-width:326px;padding:0;width:100%;"></blockquote>
-    <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/reel/DY5BQqOK_hI/" data-instgrm-version="14" style="background:#FFF;border:0;border-radius:12px;box-shadow:0 1px 10px rgba(0,0,0,.08);margin:0 auto 12px;max-width:540px;min-width:326px;padding:0;width:100%;"></blockquote>
-    <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/p/DY3X6lJN0VG/" data-instgrm-version="14" style="background:#FFF;border:0;border-radius:12px;box-shadow:0 1px 10px rgba(0,0,0,.08);margin:0 auto 12px;max-width:540px;min-width:326px;padding:0;width:100%;"></blockquote>
-    <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/p/DY3U2wDjf34/" data-instgrm-version="14" style="background:#FFF;border:0;border-radius:12px;box-shadow:0 1px 10px rgba(0,0,0,.08);margin:0 auto 12px;max-width:540px;min-width:326px;padding:0;width:100%;"></blockquote>
+  <div class="card" style="max-width:600px;margin:0 auto 10px">
+    <div class="pad">
+      <strong>Latest on Instagram</strong>
+      <p class="small" style="margin:.45rem 0 .8rem">Watch the newest reels and posts from Elite Meals.</p>
+      <div style="display:grid;gap:8px">
+        <a class="btn ghost" href="https://www.instagram.com/reel/DY-ahdrK9t3/" target="_blank" rel="noopener">▶ Watch Reel 1</a>
+        <a class="btn ghost" href="https://www.instagram.com/reel/DY5BQqOK_hI/" target="_blank" rel="noopener">▶ Watch Reel 2</a>
+        <a class="btn ghost" href="https://www.instagram.com/p/DY3X6lJN0VG/" target="_blank" rel="noopener">📷 View Post 1</a>
+        <a class="btn ghost" href="https://www.instagram.com/p/DY3U2wDjf34/" target="_blank" rel="noopener">📷 View Post 2</a>
+      </div>
+    </div>
   </div>
   <div class="ig-fallback small" style="margin-top:8px;text-align:center">
     <a class="ig-button" href="https://www.instagram.com/dfwelitemealprepsandcatringco/" target="_blank" rel="noopener">
@@ -127,7 +134,7 @@
 
       <!-- Facebook feed -->
 <div class="fb-wrap">
-  <div class="fb-mobile">
+  <div class="fb-feed">
     <iframe
       id="fbFeedFrame"
       src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FDFWELITEmealprepsandcateringco%2F&tabs=timeline&width=500&height=520&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=false&appId"
@@ -180,7 +187,7 @@
         }
       }, 2000);
       fbFrame.addEventListener('error', function(){
-        var fbMob = document.querySelector('.fb-mobile');
+        var fbMob = document.querySelector('.fb-feed');
         var fbFall = document.getElementById('fb-fallback');
         if (fbMob) fbMob.style.display='none';
         if (fbFall) fbFall.style.display='block';
@@ -192,7 +199,6 @@
     });
   })();
 </script>
-<script async src="https://www.instagram.com/embed.js"></script>
 
       <!-- Facebook/Instagram notes -->
       <p class="small ig-note" style="text-align:center">Latest meals & updates from our social pages.</p>

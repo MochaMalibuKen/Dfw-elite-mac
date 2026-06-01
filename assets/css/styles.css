@@ -81,7 +81,8 @@ a { color: var(--brand-primary); text-decoration: none; }
   gap: 6px;
   padding: 6px 12px;
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.16);
+  border: 1px solid rgba(255,255,255,0.35);
   font-weight: 800;
   letter-spacing: 0.3px;
   text-transform: uppercase;
@@ -270,6 +271,7 @@ header img.logo {
 /* Facebook plugin should scale to container width */
 .fb-wrap { width:100%; max-width:600px; margin:0 auto; }
 .fb-page { width:100% !important; } /* desktop/tablet plugin fills container */
+.fb-feed { display:block; }
 .ig-wrap { width:100%; max-width:600px; margin:0 auto; overflow:visible; }
 #igFeedFrame { display:block; width:100%; min-height:620px; border:0; }
 
