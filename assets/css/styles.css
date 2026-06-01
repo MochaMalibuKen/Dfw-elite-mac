@@ -47,7 +47,7 @@ a { color: var(--brand-primary); text-decoration: none; }
 /* Seasonal banner */
 .ny-banner {
   position: relative;
-  background: linear-gradient(120deg, #0d0d0f, #19131a 35%, #2c0f1c 60%, #3a0b1e 100%);
+  background: linear-gradient(120deg, #1f2a44, #3c3b6e 35%, #b22234 70%, #d9534f 100%);
   color: #fff;
   padding: 12px 0;
   overflow: hidden;
@@ -57,7 +57,9 @@ a { color: var(--brand-primary); text-decoration: none; }
   content: "";
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at 70% 20%, rgba(233,30,99,0.35), transparent 55%);
+  background:
+    radial-gradient(circle at 72% 18%, rgba(255,255,255,0.28), transparent 45%),
+    radial-gradient(circle at 20% 80%, rgba(34,87,184,0.35), transparent 55%);
   opacity: 0.7;
   pointer-events: none;
 }
@@ -268,6 +270,8 @@ header img.logo {
 /* Facebook plugin should scale to container width */
 .fb-wrap { width:100%; max-width:600px; margin:0 auto; }
 .fb-page { width:100% !important; } /* desktop/tablet plugin fills container */
+.ig-wrap { width:100%; max-width:600px; margin:0 auto; overflow:visible; }
+#igFeedFrame { display:block; width:100%; min-height:620px; border:0; }
 
 /* Show SDK embed on >=481px, iframe on <=480px */
 .fb-desktop { display:block; }
@@ -277,6 +281,8 @@ header img.logo {
   .fb-desktop { display:none; }
   .fb-mobile  { display:block; }
   .fb-wrap    { max-width:100%; }
+  .ig-wrap    { max-width:100%; }
+  #igFeedFrame { min-height:680px; }
 }
 /* Simple IG button for now */
 .ig-button {

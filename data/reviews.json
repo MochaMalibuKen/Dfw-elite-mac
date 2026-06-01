@@ -1,7 +1,7 @@
 {
   "links": {
     "google": "https://g.page/r/your-google-place-id/review",
-    "facebook": "https://www.facebook.com/profile.php?id=100090718213321&sk=reviews"
+    "facebook": "https://www.facebook.com/DFWELITEmealprepsandcateringco/reviews"
   },
   "reviews": [
     {
@@ -39,6 +39,42 @@
       "rating": 5,
       "comment": "These guys’ food is amazing!! Everything I’ve had has been awesome!! Makes it so easy to track my intake!",
       "date": "2024-01-26"
+    },
+    {
+      "name": "Brittany R.",
+      "rating": 5,
+      "comment": "Elite Meals catered our wedding reception and everything was perfect. The food was hot, flavorful, and beautifully presented.",
+      "date": "2026-05-28"
+    },
+    {
+      "name": "Marcus & Tiana",
+      "rating": 5,
+      "comment": "From tasting to wedding day, communication was smooth and professional. Our guests kept asking who made the food.",
+      "date": "2026-05-11"
+    },
+    {
+      "name": "Samantha L.",
+      "rating": 5,
+      "comment": "We used Elite Meals for our wedding of 160 guests and they delivered big time. Great portions, amazing flavor, and on-time service.",
+      "date": "2026-04-30"
+    },
+    {
+      "name": "Jordan K.",
+      "rating": 5,
+      "comment": "The wedding catering menu was customized exactly how we wanted. They handled dietary requests without any stress.",
+      "date": "2026-04-22"
+    },
+    {
+      "name": "Danielle M.",
+      "rating": 5,
+      "comment": "Best decision we made for our wedding weekend. Rehearsal dinner and reception both turned out incredible.",
+      "date": "2026-04-09"
+    },
+    {
+      "name": "Chris & Alyssa",
+      "rating": 5,
+      "comment": "Professional team, fast setup, and delicious food. Our wedding guests are still talking about the pasta and chicken dishes.",
+      "date": "2026-03-27"
     }
   ]
 }

@@ -1,3 +1,8 @@
+const SOCIAL_LINKS = {
+  instagram: 'https://www.instagram.com/koamealprepsllc',
+  facebook: 'https://www.facebook.com/DFWELITEmealprepsandcateringco'
+};
+
 function navHTML(){
   return `
   <nav class="nav">
@@ -36,8 +41,8 @@ function footerHTML(){
         </div>
         <div class="small" style="text-align:right">
           <a href="reviews.html">Reviews</a> •
-          <a href="https://instagram.com/koamealprepsllc" target="_blank" rel="noopener">Instagram</a> •
-          <a href="https://www.facebook.com/profile.php?id=100090718213321" target="_blank" rel="noopener">Facebook</a>
+          <a href="${SOCIAL_LINKS.instagram}" target="_blank" rel="noopener">Instagram</a> •
+          <a href="${SOCIAL_LINKS.facebook}" target="_blank" rel="noopener">Facebook</a>
         </div>
       </div>
     </div>

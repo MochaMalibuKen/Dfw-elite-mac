@@ -43,15 +43,15 @@
   <div class="ny-banner" id="nyBanner">
     <div class="container">
       <div class="ny-copy">
-        <span class="ny-pill">Happy New Year</span>
-        <h2 class="ny-title">Happy New Year from Elite Meals and Catering</h2>
-        <p class="ny-sub">Fuel your goals with fresh meals and new ambassadors, ready to help you crush 2025.</p>
+        <span class="ny-pill">USA 250 Celebration</span>
+        <h2 class="ny-title">Celebrating America’s 250th Birthday</h2>
+        <p class="ny-sub">This June, fuel your summer with fresh meals and catering for graduations, cookouts, and July 4th events.</p>
         <div class="ny-actions">
           <a class="btn sm" href="menu.html">Order now</a>
-          <a class="btn ghost sm" href="contact.html">Chat with us</a>
+          <a class="btn ghost sm" href="catering.html">Plan catering</a>
         </div>
       </div>
-      <button class="ny-close" id="nyClose" aria-label="Dismiss New Year banner">×</button>
+      <button class="ny-close" id="nyClose" aria-label="Dismiss USA 250 banner">×</button>
     </div>
   </div>
 
@@ -92,7 +92,7 @@
 
   <!-- ✅ Social Feed section -->
    <div id="menuCtaHome" style="margin-top:10px; text-align:center;">
-  <a class="btn" href="https://www.facebook.com/profile.php?id=100090718213321&sk=posts" target="_blank" rel="noopener">
+  <a class="btn" href="https://www.facebook.com/DFWELITEmealprepsandcateringco" target="_blank" rel="noopener">
     This Week’s Menu (Facebook)
   </a>
   <small id="menuCutoffNote" class="small" style="display:block;margin-top:6px;opacity:.8">
@@ -102,84 +102,80 @@
   <section class="section">
   <div class="container">
     <h2>Follow Us</h2>
+    <script>
+      window.SOCIAL_LINKS = {
+        facebook: 'https://www.facebook.com/DFWELITEmealprepsandcateringco',
+        instagram: 'https://www.instagram.com/koamealprepsllc'
+      };
+    </script>
 
     <div class="social-grid">
-      <!-- Facebook (auto-resizes to wrapper) -->
-     <!-- Facebook (resilient) -->
-
-   <!-- Facebook Feed (desktop/tablet: SDK; mobile: iframe; universal fallback) -->
-<div class="fb-wrap">
-  <div id="fb-root"></div>
-
-  <!-- Desktop/Tablet embed (hidden on small screens) -->
-  <div id="fb-container" class="fb-desktop">
-    <div class="fb-page"
-      data-href="https://www.facebook.com/profile.php?id=100090718213321"
-      data-tabs="timeline"
-      data-width=""
-      data-height="520"
-      data-small-header="true"
-      data-adapt-container-width="true"
-      data-hide-cover="false"
-      data-show-facepile="false"></div>
+      <!-- Instagram feed -->
+<div class="ig-wrap">
+  <iframe
+    id="igFeedFrame"
+    src="https://www.instagram.com/koamealprepsllc/embed"
+    style="border:none;overflow:hidden;width:100%;height:620px"
+    scrolling="no"
+    allowtransparency="true">
+  </iframe>
+  <div class="ig-fallback small" style="margin-top:8px;text-align:center">
+    <a class="ig-button" id="igPageLink" href="https://www.instagram.com/koamealprepsllc" target="_blank" rel="noopener">
+      Visit our Instagram →
+    </a>
   </div>
+</div>
 
-  <!-- Mobile-first direct iframe (shown on small screens) -->
+      <!-- Facebook feed -->
+<div class="fb-wrap">
   <div class="fb-mobile">
     <iframe
-      src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fprofile.php%3Fid%3D100090718213321&tabs=timeline&width=360&height=520&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=false"
+      id="fbFeedFrame"
+      src=""
       style="border:none;overflow:hidden;width:100%;height:520px"
       scrolling="no" frameborder="0" allowfullscreen="true"
       allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
     </iframe>
   </div>
 
-  <!-- Fallback if everything is blocked -->
   <div id="fb-fallback" class="card" style="display:none; margin-top:10px;">
     <div class="pad">
       <strong>Follow us on Facebook</strong>
-      <p class="small" style="margin:.4rem 0 0">See our latest meals and updates.</p>
-      <a class="btn" href="https://www.facebook.com/profile.php?id=100090718213321&sk=posts" target="_blank" rel="noopener">
+      <p class="small" style="margin:.4rem 0 0">See our latest meals and updates directly on Facebook.</p>
+      <a class="btn" id="fbPageLink" href="https://www.facebook.com/DFWELITEmealprepsandcateringco" target="_blank" rel="noopener">
         Open Facebook Page
       </a>
     </div>
   </div>
 </div>
 
-<!-- Load SDK once (for desktop/tablet) + show fallback if it fails -->
 <script>
-  (function loadFB(){
-    if (document.getElementById('facebook-jssdk')) return;
-    window.fbAsyncInit = function(){ try{ FB.init({xfbml:true, version:'v18.0'}); }catch(e){} };
-    var js=document.createElement('script'); js.id='facebook-jssdk';
-    js.src='https://connect.facebook.net/en_US/sdk.js';
-    document.body.appendChild(js);
-  })();
-
-  // Fallback if neither iframe nor SDK render
-  window.addEventListener('load', function(){
-    setTimeout(function(){
-      var iframeOK = document.querySelector('.fb-mobile iframe');
-      var sdkOK = document.querySelector('.fb-page iframe');
-      if (!iframeOK && !sdkOK) {
-        var fbCont = document.getElementById('fb-container');
+  (function initSocialFeeds(){
+    var fbUrl = window.SOCIAL_LINKS.facebook;
+    var igUrl = window.SOCIAL_LINKS.instagram;
+    var fbFrame = document.getElementById('fbFeedFrame');
+    var fbBtn = document.getElementById('fbPageLink');
+    var menuBtn = document.querySelector('#menuCtaHome a.btn');
+    if (fbBtn) fbBtn.href = fbUrl;
+    if (menuBtn) menuBtn.href = fbUrl;
+    if (fbFrame){
+      fbFrame.src = 'https://www.facebook.com/plugins/page.php?href=' + encodeURIComponent(fbUrl) + '&tabs=timeline&width=500&height=520&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=false';
+      fbFrame.addEventListener('error', function(){
         var fbMob = document.querySelector('.fb-mobile');
         var fbFall = document.getElementById('fb-fallback');
-        if (fbCont) fbCont.style.display='none';
         if (fbMob) fbMob.style.display='none';
         if (fbFall) fbFall.style.display='block';
-      }
-    }, 3000);
-  });
+      });
+    }
+    window.addEventListener('DOMContentLoaded', function(){
+      var igBtn = document.getElementById('igPageLink');
+      if (igBtn) igBtn.href = igUrl;
+    });
+  })();
 </script>
 
-      <!-- Instagram (text button for now; easy to tap on mobile) -->
-      <div style="text-align:center">
-        <a class="ig-button" href="https://www.instagram.com/koamealprepsllc" target="_blank" rel="noopener">
-          Visit our Instagram →
-        </a>
-        <p class="small ig-note">Latest meals & updates (auto-updates on Instagram)</p>
-      </div>
+      <!-- Facebook/Instagram notes -->
+      <p class="small ig-note" style="text-align:center">Latest meals & updates from our social pages.</p>
     </div>
   </div>
 </section>
@@ -214,7 +210,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
 
   // Fireworks bursts (lightweight, auto-ends)
   const fwRoot = document.getElementById('fireworks');
-  const colors = ['#E91E63', '#FFD9E4', '#ffffff', '#f9b500'];
+  const colors = ['#B22234', '#FFFFFF', '#3C3B6E', '#9EC5FF'];
   let bursts = 0;
   function launchFirework(){
     if(!fwRoot) return;
