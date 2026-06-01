@@ -92,7 +92,7 @@
 
   <!-- ✅ Social Feed section -->
    <div id="menuCtaHome" style="margin-top:10px; text-align:center;">
-  <a class="btn" href="https://www.facebook.com/DFWELITEmealprepsandcateringco" target="_blank" rel="noopener">
+  <a class="btn" href="https://www.facebook.com/DFWELITEmealprepsandcateringco/posts" target="_blank" rel="noopener">
     This Week’s Menu (Facebook)
   </a>
   <small id="menuCutoffNote" class="small" style="display:block;margin-top:6px;opacity:.8">
@@ -104,23 +104,25 @@
     <h2>Follow Us</h2>
     <script>
       window.SOCIAL_LINKS = {
-        facebook: 'https://www.facebook.com/DFWELITEmealprepsandcateringco',
-        instagram: 'https://www.instagram.com/koamealprepsllc'
+        facebook: 'https://www.facebook.com/DFWELITEmealprepsandcateringco/',
+        instagram: 'https://www.instagram.com/dfwelitemealprepsandcatringco/'
       };
     </script>
 
     <div class="social-grid">
-      <!-- Instagram feed -->
+      <!-- Instagram feed (supported embed style + fallback) -->
 <div class="ig-wrap">
-  <iframe
-    id="igFeedFrame"
-    src="https://www.instagram.com/koamealprepsllc/embed"
-    style="border:none;overflow:hidden;width:100%;height:620px"
-    scrolling="no"
-    allowtransparency="true">
-  </iframe>
+  <div class="card" style="max-width:600px;margin:0 auto">
+    <div class="pad" style="text-align:center">
+      <strong>Latest meals on Instagram</strong>
+      <p class="small" style="margin:.5rem 0 0">Tap below to view the live feed directly on Instagram.</p>
+      <a class="ig-button" id="igPageLink" href="https://www.instagram.com/dfwelitemealprepsandcatringco/" target="_blank" rel="noopener" style="margin-top:10px">
+        Open Instagram Feed →
+      </a>
+    </div>
+  </div>
   <div class="ig-fallback small" style="margin-top:8px;text-align:center">
-    <a class="ig-button" id="igPageLink" href="https://www.instagram.com/koamealprepsllc" target="_blank" rel="noopener">
+    <a class="ig-button" href="https://www.instagram.com/dfwelitemealprepsandcatringco/" target="_blank" rel="noopener">
       Visit our Instagram →
     </a>
   </div>
@@ -131,18 +133,23 @@
   <div class="fb-mobile">
     <iframe
       id="fbFeedFrame"
-      src=""
+      src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FDFWELITEmealprepsandcateringco%2F&tabs=timeline&width=500&height=520&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=false&appId"
       style="border:none;overflow:hidden;width:100%;height:520px"
       scrolling="no" frameborder="0" allowfullscreen="true"
       allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
     </iframe>
+    <div style="margin-top:10px;text-align:center">
+      <a class="btn" id="fbPostsLink" href="https://www.facebook.com/DFWELITEmealprepsandcateringco/posts" target="_blank" rel="noopener">
+        Open This Week’s Menu on Facebook
+      </a>
+    </div>
   </div>
 
   <div id="fb-fallback" class="card" style="display:none; margin-top:10px;">
     <div class="pad">
       <strong>Follow us on Facebook</strong>
       <p class="small" style="margin:.4rem 0 0">See our latest meals and updates directly on Facebook.</p>
-      <a class="btn" id="fbPageLink" href="https://www.facebook.com/DFWELITEmealprepsandcateringco" target="_blank" rel="noopener">
+      <a class="btn" id="fbPageLink" href="https://www.facebook.com/DFWELITEmealprepsandcateringco/posts" target="_blank" rel="noopener">
         Open Facebook Page
       </a>
     </div>
@@ -156,10 +163,25 @@
     var fbFrame = document.getElementById('fbFeedFrame');
     var fbBtn = document.getElementById('fbPageLink');
     var menuBtn = document.querySelector('#menuCtaHome a.btn');
-    if (fbBtn) fbBtn.href = fbUrl;
-    if (menuBtn) menuBtn.href = fbUrl;
+    var fbPostsBtn = document.getElementById('fbPostsLink');
+    var fbPostsUrl = fbUrl.replace(/\/$/, '') + '/posts';
+    if (fbBtn) fbBtn.href = fbPostsUrl;
+    if (fbPostsBtn) fbPostsBtn.href = fbPostsUrl;
+    if (menuBtn) menuBtn.href = fbPostsUrl;
     if (fbFrame){
-      fbFrame.src = 'https://www.facebook.com/plugins/page.php?href=' + encodeURIComponent(fbUrl) + '&tabs=timeline&width=500&height=520&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=false';
+      var buildFbPluginSrc = function(url){
+        return 'https://www.facebook.com/plugins/page.php?href=' + encodeURIComponent(url) + '&tabs=timeline&width=500&height=520&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=false&appId';
+      };
+      fbFrame.src = buildFbPluginSrc(fbUrl);
+      setTimeout(function(){
+        try{
+          if (!fbFrame.contentWindow) {
+            fbFrame.src = buildFbPluginSrc('https://www.facebook.com/pg/DFWELITEmealprepsandcateringco/');
+          }
+        }catch(_e){
+          fbFrame.src = buildFbPluginSrc('https://www.facebook.com/pg/DFWELITEmealprepsandcateringco/');
+        }
+      }, 2000);
       fbFrame.addEventListener('error', function(){
         var fbMob = document.querySelector('.fb-mobile');
         var fbFall = document.getElementById('fb-fallback');

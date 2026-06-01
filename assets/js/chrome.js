@@ -1,5 +1,5 @@
 const SOCIAL_LINKS = {
-  instagram: 'https://www.instagram.com/koamealprepsllc',
+  instagram: 'https://www.instagram.com/dfwelitemealprepsandcatringco/',
   facebook: 'https://www.facebook.com/DFWELITEmealprepsandcateringco'
 };
 
