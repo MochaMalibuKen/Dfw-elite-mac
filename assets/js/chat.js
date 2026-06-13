@@ -1,5 +1,5 @@
 (function(){
-  const ENDPOINT = "https://formspree.io/f/abcde123"; // Replace with your Formspree endpoint
+  const ENDPOINT = "https://formsubmit.co/ajax/dfweliteco@gmail.com";
 
   const $fab    = document.getElementById('chat-fab');
   const $panel  = document.getElementById('chat-panel');

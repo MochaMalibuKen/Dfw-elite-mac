@@ -1,9 +1,6 @@
 (function(){
-  // EITHER: Formspree (copy your endpoint here) ...
-  const FORMSPREE_ENDPOINT = "https://formspree.io/f/your_endpoint_id"; // TODO replace
-
-  // ...OR swap to your Google Apps Script endpoint later:
-  // const FORMSPREE_ENDPOINT = "https://script.google.com/macros/s/YOUR_DEPLOY_ID/exec";
+  // Using formsubmit.co for email delivery
+  const FORMSPREE_ENDPOINT = "https://formsubmit.co/ajax/dfweliteco@gmail.com";
 
   async function send(payload){
     const res = await fetch(FORMSPREE_ENDPOINT, {
