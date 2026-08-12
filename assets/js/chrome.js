@@ -14,6 +14,7 @@ function navHTML(){
       <div class="menu">
         <a href="menu.html" data-i18n="nav_menu">Menu</a>
         <a href="calculator.html" data-i18n="nav_calc">Calculator</a>
+        <a href="about.html">Our Owner</a>
         <a href="ambassadors.html" data-i18n="nav_ambassadors">Ambassadors</a>
         <a href="catering.html" data-i18n="nav_catering">Catering</a>
         <a href="reviews.html" data-i18n="nav_reviews">Reviews</a>
@@ -40,6 +41,7 @@ function footerHTML(){
           <p class="small">© ${year} DFW Elite Meals & Catering Co.</p>
         </div>
         <div class="small" style="text-align:right">
+          <a href="about.html">Our Owner</a> •
           <a href="reviews.html">Reviews</a> •
           <a href="${SOCIAL_LINKS.instagram}" target="_blank" rel="noopener">Instagram</a> •
           <a href="${SOCIAL_LINKS.facebook}" target="_blank" rel="noopener">Facebook</a>

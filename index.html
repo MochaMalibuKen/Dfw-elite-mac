@@ -38,20 +38,18 @@
   <script src="assets/js/chrome.js"></script>
   <script src="assets/js/i18n.js"></script>
 
-  <div class="fireworks" id="fireworks"></div>
-
-  <div class="ny-banner" id="nyBanner">
+  <div class="summer-banner" id="summerBanner">
     <div class="container">
-      <div class="ny-copy">
-        <span class="ny-pill">🇺🇸 USA 250 Celebration</span>
-        <h2 class="ny-title">Celebrating America’s 250th Birthday</h2>
-        <p class="ny-sub">This June, fuel your summer with fresh meals and catering for graduations, cookouts, and July 4th events.</p>
-        <div class="ny-actions">
+      <div class="summer-copy">
+        <span class="summer-pill">August in DFW</span>
+        <h2 class="summer-title">Texas summer, handled.</h2>
+        <p class="summer-sub">Skip the hot kitchen with fresh weekly meals and effortless catering for every summer gathering.</p>
+        <div class="summer-actions">
           <a class="btn sm" href="menu.html">Order now</a>
           <a class="btn ghost sm" href="catering.html">Plan catering</a>
         </div>
       </div>
-      <button class="ny-close" id="nyClose" aria-label="Dismiss USA 250 banner">×</button>
+      <button class="summer-close" id="summerClose" aria-label="Dismiss Texas summer banner">×</button>
     </div>
   </div>
 
@@ -101,7 +99,7 @@
 </div>
   <section class="section">
   <div class="container">
-    <p class="small" style="margin:0 0 6px;letter-spacing:.04em;text-transform:uppercase;opacity:.8">Honoring America 250 • Est. 1776</p>
+    <p class="small" style="margin:0 0 6px;letter-spacing:.04em;text-transform:uppercase;opacity:.8">Fresh from our DFW kitchen</p>
     <h2>Follow Us</h2>
     <script>
       window.SOCIAL_LINKS = {
@@ -211,8 +209,8 @@
   <script src="assets/js/render.js"></script>
   <script>
 document.addEventListener('DOMContentLoaded', ()=>{
-  const banner = document.getElementById('nyBanner');
-  const close = document.getElementById('nyClose');
+  const banner = document.getElementById('summerBanner');
+  const close = document.getElementById('summerClose');
   close?.addEventListener('click', ()=> banner?.remove());
 
   const el = document.querySelector('.hero-bg');
@@ -235,37 +233,6 @@ document.addEventListener('DOMContentLoaded', ()=>{
     setBG(IMGS[i]);
   }, 6000);
 
-  // Fireworks bursts (lightweight, auto-ends)
-  const fwRoot = document.getElementById('fireworks');
-  const colors = ['#B22234', '#FFFFFF', '#3C3B6E', '#9EC5FF'];
-  let bursts = 0;
-  function launchFirework(){
-    if(!fwRoot) return;
-    bursts++;
-    const burst = document.createElement('div');
-    burst.className = 'fw-burst';
-    burst.style.left = `${20 + Math.random()*60}%`;
-    burst.style.top = `${15 + Math.random()*50}%`;
-    const particles = 14 + Math.floor(Math.random()*8);
-    for(let p=0; p<particles; p++){
-      const part = document.createElement('div');
-      part.className = 'fw-particle';
-      const angle = (Math.PI * 2 * p) / particles;
-      const speed = 40 + Math.random()*35;
-      const dx = Math.cos(angle)*speed;
-      const dy = Math.sin(angle)*speed;
-      part.style.setProperty('--dx', `${dx}px`);
-      part.style.setProperty('--dy', `${dy}px`);
-      part.style.background = colors[Math.floor(Math.random()*colors.length)];
-      part.style.animationDelay = `${Math.random()*0.1}s`;
-      burst.appendChild(part);
-    }
-    fwRoot.appendChild(burst);
-    setTimeout(()=> burst.remove(), 1400);
-    if(bursts >= 12) clearInterval(fwInterval);
-  }
-  const fwInterval = setInterval(launchFirework, 1200);
-  launchFirework();
 });
 </script>
 
