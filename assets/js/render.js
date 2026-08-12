@@ -29,7 +29,7 @@ async function loadMenu(){
       <div class="card"><div class="pad">
         <h3>${pk.name_en}</h3>
         <div class="price">${currency(pk.price)}</div>
-        <a class="btn" href="${pk.qbo_payment_link}" target="_blank" rel="noopener">${t('buy_now')}</a>
+        <a class="btn" href="contact.html">${t('buy_now')}</a>
       </div></div>
     `).join('');
   }
@@ -124,4 +124,3 @@ document.addEventListener('DOMContentLoaded', ()=>{
   loadMenu();
   loadAmbassadors();
 });
-
