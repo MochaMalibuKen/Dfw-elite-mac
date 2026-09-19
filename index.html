@@ -38,18 +38,18 @@
   <script src="assets/js/chrome.js"></script>
   <script src="assets/js/i18n.js"></script>
 
-  <div class="summer-banner" id="summerBanner">
+  <div class="fall-banner" id="fallBanner">
     <div class="container">
-      <div class="summer-copy">
-        <span class="summer-pill">August in DFW</span>
-        <h2 class="summer-title">Texas summer, handled.</h2>
-        <p class="summer-sub">Skip the hot kitchen with fresh weekly meals and effortless catering for every summer gathering.</p>
-        <div class="summer-actions">
+      <div class="fall-copy">
+        <span class="fall-pill">Gather this fall</span>
+        <h2 class="fall-title">A little comfort. A full table.</h2>
+        <p class="fall-sub">Settle into the season with fresh weekly meals and catering for your fall gatherings.</p>
+        <div class="fall-actions">
           <a class="btn sm" href="menu.html">Order now</a>
           <a class="btn ghost sm" href="catering.html">Plan catering</a>
         </div>
       </div>
-      <button class="summer-close" id="summerClose" aria-label="Dismiss Texas summer banner">×</button>
+      <button class="fall-close" id="fallClose" aria-label="Dismiss fall banner">×</button>
     </div>
   </div>
 
@@ -209,8 +209,8 @@
   <script src="assets/js/render.js"></script>
   <script>
 document.addEventListener('DOMContentLoaded', ()=>{
-  const banner = document.getElementById('summerBanner');
-  const close = document.getElementById('summerClose');
+  const banner = document.getElementById('fallBanner');
+  const close = document.getElementById('fallClose');
   close?.addEventListener('click', ()=> banner?.remove());
 
   const el = document.querySelector('.hero-bg');

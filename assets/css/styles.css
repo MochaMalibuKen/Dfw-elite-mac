@@ -13,9 +13,9 @@ html, body {
   font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
   color: #111;
   background:
-    radial-gradient(circle at 18% 22%, rgba(233, 30, 99, 0.08), transparent 36%),
-    radial-gradient(circle at 82% 8%, rgba(0, 0, 0, 0.08), transparent 34%),
-    linear-gradient(180deg, #ffffff, #fafafa);
+    radial-gradient(circle at 18% 22%, rgba(186, 104, 49, 0.08), transparent 36%),
+    radial-gradient(circle at 82% 8%, rgba(139, 62, 62, 0.06), transparent 34%),
+    linear-gradient(180deg, #fffdf9, #fbf7f1);
 }
 
 /* Links & buttons */
@@ -44,8 +44,8 @@ a { color: var(--brand-primary); text-decoration: none; }
 /* Layout helpers */
 .container { max-width: 1080px; margin: 0 auto; padding: 0 16px; }
 
-/* Subtle Texas summer banner */
-.summer-banner {
+/* Subtle fall banner */
+.fall-banner {
   position: relative;
   background: linear-gradient(110deg, #fffaf5 0%, #fff1e5 58%, #ffe4d1 100%);
   color: #2b211d;
@@ -53,7 +53,7 @@ a { color: var(--brand-primary); text-decoration: none; }
   overflow: hidden;
   border-bottom: 1px solid rgba(190, 104, 52, .18);
 }
-.summer-banner::after {
+.fall-banner::after {
   content: "";
   position: absolute;
   width: 150px;
@@ -65,7 +65,7 @@ a { color: var(--brand-primary); text-decoration: none; }
   box-shadow: 0 0 54px rgba(240, 143, 74, .16);
   pointer-events: none;
 }
-.summer-banner .container {
+.fall-banner .container {
   position: relative;
   display: flex;
   gap: 14px;
@@ -73,11 +73,11 @@ a { color: var(--brand-primary); text-decoration: none; }
   justify-content: space-between;
   z-index: 1;
 }
-.summer-copy {
+.fall-copy {
   display: grid;
   gap: 6px;
 }
-.summer-pill {
+.fall-pill {
   display: inline-flex;
   width: fit-content;
   align-items: center;
@@ -92,10 +92,10 @@ a { color: var(--brand-primary); text-decoration: none; }
   text-transform: uppercase;
   font-size: 0.72rem;
 }
-.summer-title { font-weight: 850; margin: 0; }
-.summer-sub { margin: 0; color: #66544b; }
-.summer-actions { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 2px; }
-.summer-close {
+.fall-title { font-weight: 850; margin: 0; }
+.fall-sub { margin: 0; color: #66544b; }
+.fall-actions { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 2px; }
+.fall-close {
   background: rgba(43, 33, 29, .05);
   color: #66544b;
   border: none;
@@ -107,12 +107,12 @@ a { color: var(--brand-primary); text-decoration: none; }
   font-size: 18px;
   cursor: pointer;
 }
-.summer-close:hover { background: rgba(43, 33, 29, .1); }
+.fall-close:hover { background: rgba(43, 33, 29, .1); }
 @media(max-width: 640px){
-  .summer-banner .container { align-items: flex-start; }
-  .summer-copy { padding-right: 28px; }
-  .summer-actions { width: 100%; }
-  .summer-close { position: absolute; top: 0; right: 16px; }
+  .fall-banner .container { align-items: flex-start; }
+  .fall-copy { padding-right: 28px; }
+  .fall-actions { width: 100%; }
+  .fall-close { position: absolute; top: 0; right: 16px; }
 }
 
 /* Navbar */
@@ -180,6 +180,72 @@ a { color: var(--brand-primary); text-decoration: none; }
 .price { font-weight: 800; }
 
 /* Footer */
+/* Catering event carousel */
+.catering-highlights {
+  margin: 36px 0;
+  padding: 34px 0 24px;
+  border-radius: 26px;
+  overflow: hidden;
+  color: #fff;
+  background: radial-gradient(ellipse at 85% 0%, #512336, transparent 65%), #171416;
+  border: 1px solid #382830;
+  box-shadow: 0 18px 45px rgba(35, 12, 23, .13);
+}
+.catering-gallery-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 0 32px 24px;
+}
+.catering-eyebrow { color: #f9a9c4; text-transform: uppercase; letter-spacing: .18em; font-size: .7rem; font-weight: 800; }
+.catering-highlights h2 { font-size: clamp(1.8rem, 4vw, 2.6rem); letter-spacing: -.04em; margin: 8px 0 10px; }
+.catering-gallery-heading p { margin: 0; color: #d4c4cb; line-height: 1.6; }
+.catering-inquiry-link { color: #ffd9e4; font-size: .85rem; font-weight: 700; white-space: nowrap; padding-bottom: 5px; border-bottom: 1px solid #926276; }
+.catering-video-grid {
+  display: flex;
+  gap: 22px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding: 8px max(24px, calc((100% - 270px) / 2)) 24px;
+  scrollbar-width: none;
+}
+.catering-video-grid::-webkit-scrollbar { display: none; }
+.catering-video-card {
+  flex: 0 0 270px;
+  scroll-snap-align: center;
+  margin: 0;
+  padding: 9px;
+  border-radius: 22px;
+  background: #fff9fb;
+  border: 1px solid #e4bac9;
+  box-shadow: 0 12px 28px #0006;
+}
+.catering-video-card video {
+  display: block;
+  width: 100%;
+  aspect-ratio: 9 / 16;
+  object-fit: contain;
+  border-radius: 14px;
+  background: #111;
+}
+.catering-video-card figcaption { display: flex; align-items: center; gap: 8px; padding: 14px 3px 5px; color: #33232a; font-size: .8rem; font-weight: 700; }
+.catering-video-card figcaption > span:last-child { margin-left: auto; color: #74626b; font-weight: 400; }
+.catering-clip-number { color: #ac2457; font-size: .7rem; letter-spacing: .05em; }
+.catering-gallery-controls { display: flex; justify-content: center; align-items: center; gap: 24px; }
+.catering-gallery-controls[hidden] { display: none; }
+.catering-arrow { width: 44px; height: 44px; border-radius: 50%; border: 1px solid #866371; background: #ffffff09; color: #fff; font-size: 1.35rem; cursor: pointer; }
+.catering-arrow:hover { background: #b5265a; border-color: #f4a8c2; }
+.catering-arrow:disabled { opacity: .3; cursor: default; background: transparent; }
+.catering-gallery-count { font-size: .75rem; letter-spacing: .15em; color: #f9d5e2; font-variant-numeric: tabular-nums; }
+.catering-highlights :focus-visible { outline: 3px solid #ff8bb5; outline-offset: 3px; }
+@media (max-width: 600px) {
+  .catering-highlights { border-radius: 20px; padding-top: 26px; }
+  .catering-gallery-heading { padding: 0 22px 22px; flex-direction: column; align-items: start; gap: 16px; }
+  .catering-video-card { flex-basis: 240px; }
+  .catering-video-grid { gap: 16px; padding-inline: max(16px, calc((100% - 240px) / 2)); }
+}
+
 .footer {
   border-top: 1px solid #eee;
   padding: 22px 0;
@@ -761,4 +827,20 @@ img.logo { max-height: 56px; height: auto; width: auto; }
     max-width: 460px;
     justify-self: center;
   }
+}
+
+/* Warm seasonal touches, with the signature pink retained. */
+.nav { border-bottom-color: #ecdfd3; background: #fffdf9; }
+.footer { background: #f7efe5; border-top-color: #e7d8c9; }
+.fall-pill { background: #f4e3cc; border-color: #ddba8b; color: #794719; }
+.fall-banner { border-bottom-color: #e5c6a2; }
+.fall-title { color: #573424; }
+.fall-banner::after {
+  width: 130px;
+  height: 130px;
+  top: -52px;
+  border-radius: 80% 0 80% 0;
+  transform: rotate(-25deg);
+  background: rgba(167, 86, 36, .12);
+  box-shadow: 32px 40px 0 rgba(194, 134, 55, .08);
 }
