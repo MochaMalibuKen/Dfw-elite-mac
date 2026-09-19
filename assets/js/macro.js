@@ -112,9 +112,9 @@ function renderPlan(state){
     const ffEl = document.getElementById('calcFulfillment');
     const fulfill = (ffEl && (ffEl.value === 'delivery' || ffEl.value === 'pickup')) ? ffEl.value : 'pickup';
 
-    // Resolve links safely (support old qbo_payment_link for backwards-compat)
-    const primaryHref   = (primary && (primary.qbo_links?.[fulfill] || primary.qbo_payment_link)) || '#';
-    const secondaryHref = (secondary && (secondary.qbo_links?.[fulfill] || secondary.qbo_payment_link)) || '#';
+    // Pack selections lead to an inquiry rather than a payment provider.
+    const primaryHref = 'contact.html#contactForm';
+    const secondaryHref = 'contact.html#contactForm';
 
     const tips = goalTips(goal);
 
@@ -166,7 +166,7 @@ function renderPlan(state){
           </div>
           <p class="small" style="margin-top:6px">
             ${fulfill === 'delivery' ? 'Selected: Delivery (+$15).' : 'Selected: Pickup at F45 (Free).'}
-            ${t("footer_secure","Secure checkout via QuickBooks")}
+            ${t("footer_secure","Contact us to confirm pricing and payment details.")}
           </p>
         </div></div>
 

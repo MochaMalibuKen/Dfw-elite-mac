@@ -844,3 +844,24 @@ img.logo { max-height: 56px; height: auto; width: auto; }
   background: rgba(167, 86, 36, .12);
   box-shadow: 32px 40px 0 rgba(194, 134, 55, .08);
 }
+
+/* Centered Facebook feature and a compact Instagram invitation. */
+.social-heading { text-align: center; max-width: 620px; margin: 0 auto 26px; }
+.social-kicker { color: #854b29; font-size: .72rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
+.social-heading h2 { margin: 10px 0; font-size: clamp(1.8rem, 4vw, 2.5rem); letter-spacing: -.035em; }
+.social-heading p, .instagram-invitation p { color: #69554a; line-height: 1.65; }
+.facebook-feature { max-width: 550px; margin: 0 auto; padding: 24px; border: 1px solid #e5c9b1; border-radius: 22px; background: #fffaf5; box-shadow: 0 12px 30px #5734240c; }
+.facebook-feature-heading { text-align: center; margin-bottom: 20px; }
+.facebook-feature-heading p { margin: 8px 0 0; color: #69554a; }
+.facebook-feed-container { width: 100%; max-width: 500px; margin: auto; }
+.facebook-feed-container iframe { display: block; width: 100%; height: 650px; border: 0; background: #fff; }
+.facebook-feature-footer { text-align: center; padding-top: 22px; }
+.facebook-feature-footer p { margin-bottom: 0; line-height: 1.5; }
+.instagram-invitation { display: flex; align-items: center; justify-content: space-between; gap: 28px; max-width: 850px; margin: 28px auto 0; padding: 28px; border: 1px solid #eed5de; border-radius: 20px; background: linear-gradient(120deg, #fff3f7, #fff7ed); }
+.instagram-invitation h3 { margin: 8px 0; font-size: 1.45rem; letter-spacing: -.025em; }
+.instagram-invitation p { margin: 0; max-width: 480px; }
+.instagram-invitation .btn { flex-shrink: 0; text-align: center; }
+@media (max-width: 600px) {
+  .facebook-feature { padding: 16px; border-radius: 18px; }
+  .instagram-invitation { flex-direction: column; align-items: flex-start; padding: 24px; gap: 20px; }
+}

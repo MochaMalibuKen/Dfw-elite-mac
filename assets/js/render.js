@@ -1,6 +1,5 @@
 let MENU = null;
 
-function currency(n){ return `$${Number(n).toFixed(2)}`; }
 
 // ----- MENU RENDER -----
 async function loadMenu(){
@@ -28,8 +27,7 @@ async function loadMenu(){
     elPacks.innerHTML = MENU.packs.map(pk => `
       <div class="card"><div class="pad">
         <h3>${pk.name_en}</h3>
-        <div class="price">${currency(pk.price)}</div>
-        <a class="btn" href="contact.html">${t('buy_now')}</a>
+        <a class="btn" href="contact.html#contactForm" data-i18n="send_inquiry">${window.I18N?.strings?.send_inquiry || 'Send Inquiry'}</a>
       </div></div>
     `).join('');
   }

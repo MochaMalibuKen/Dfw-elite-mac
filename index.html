@@ -97,113 +97,41 @@
     Order by Friday 7:00pm (CT).
   </small>
 </div>
-  <section class="section">
-  <div class="container">
-    <p class="small" style="margin:0 0 6px;letter-spacing:.04em;text-transform:uppercase;opacity:.8">Fresh from our DFW kitchen</p>
-    <h2>Follow Us</h2>
-    <script>
-      window.SOCIAL_LINKS = {
-        facebook: 'https://www.facebook.com/DFWELITEmealprepsandcateringco/',
-        instagram: 'https://www.instagram.com/dfwelitemealprepsandcatringco/'
-      };
-    </script>
-
-    <div class="social-grid">
-      <!-- Instagram feed (supported embed style + fallback) -->
-<div class="ig-wrap">
-  <div class="card" style="max-width:600px;margin:0 auto 10px">
-    <div class="pad">
-      <strong>Latest on Instagram</strong>
-      <p class="small" style="margin:.45rem 0 .8rem">Watch our featured reel.</p>
-      <iframe
-        title="Instagram Reel"
-        src="https://www.instagram.com/reel/DY-ahdrK9t3/embed"
-        style="width:100%;min-height:620px;border:0;border-radius:12px;overflow:hidden"
-        scrolling="no"
-        allowtransparency="true">
-      </iframe>
+  <section class="section social-section" aria-labelledby="social-title">
+    <div class="container">
+      <div class="social-heading">
+        <span class="social-kicker">Pull up a chair</span>
+        <h2 id="social-title">Fresh from Our Kitchen</h2>
+        <p>Weekly menus, fresh meals, and a little inspiration for your next gathering.</p>
+      </div>
+      <div class="facebook-feature">
+        <div class="facebook-feature-heading">
+          <span class="social-kicker">The latest on Facebook</span>
+          <p>See what’s cooking this week.</p>
+        </div>
+        <div class="facebook-feed-container" id="facebookFeedContainer">
+          <iframe id="facebookFeed" title="DFW Elite Meals and Catering Facebook feed"
+            loading="lazy" width="500" height="650"
+            src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FDFWELITEmealprepsandcateringco%2F&amp;tabs=timeline&amp;width=500&amp;height=650&amp;small_header=false&amp;adapt_container_width=true&amp;hide_cover=false&amp;show_facepile=false"
+            allow="encrypted-media; picture-in-picture; web-share">
+          </iframe>
+        </div>
+        <div class="facebook-feature-footer">
+          <a class="btn" href="https://www.facebook.com/DFWELITEmealprepsandcateringco/posts" target="_blank" rel="noopener">View on Facebook <span aria-hidden="true">↗</span></a>
+          <p class="small">More menus, photos, and updates on our Facebook page.</p>
+        </div>
+      </div>
+      <aside class="instagram-invitation" aria-labelledby="instagram-title">
+        <div>
+          <span class="social-kicker">Let’s stay connected</span>
+          <h3 id="instagram-title">Your next craving is on Instagram.</h3>
+          <p>Follow for food inspiration and a peek behind the scenes. Share your meal, tag us, and tell us your favorite!</p>
+        </div>
+        <a class="btn ghost" href="https://www.instagram.com/dfwelitemealprepsandcatringco/" target="_blank" rel="noopener">Follow us on Instagram <span aria-hidden="true">↗</span></a>
+      </aside>
     </div>
-  </div>
-  <div class="ig-fallback small" style="margin-top:8px;text-align:center">
-    <a class="ig-button" href="https://www.instagram.com/dfwelitemealprepsandcatringco/" target="_blank" rel="noopener">
-      Visit our Instagram →
-    </a>
-  </div>
-</div>
-
-      <!-- Facebook feed -->
-<div class="fb-wrap">
-  <div class="fb-feed">
-    <iframe
-      id="fbFeedFrame"
-      src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FDFWELITEmealprepsandcateringco%2F&tabs=timeline&width=500&height=520&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=false&appId"
-      style="border:none;overflow:hidden;width:100%;height:520px"
-      scrolling="no" frameborder="0" allowfullscreen="true"
-      allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
-    </iframe>
-    <div style="margin-top:10px;text-align:center">
-      <a class="btn" id="fbPostsLink" href="https://www.facebook.com/DFWELITEmealprepsandcateringco/posts" target="_blank" rel="noopener">
-        Open This Week’s Menu on Facebook
-      </a>
-    </div>
-  </div>
-
-  <div id="fb-fallback" class="card" style="display:none; margin-top:10px;">
-    <div class="pad">
-      <strong>Follow us on Facebook</strong>
-      <p class="small" style="margin:.4rem 0 0">See our latest meals and updates directly on Facebook.</p>
-      <a class="btn" id="fbPageLink" href="https://www.facebook.com/DFWELITEmealprepsandcateringco/posts" target="_blank" rel="noopener">
-        Open Facebook Page
-      </a>
-    </div>
-  </div>
-</div>
-
-<script>
-  (function initSocialFeeds(){
-    var fbUrl = window.SOCIAL_LINKS.facebook;
-    var igUrl = window.SOCIAL_LINKS.instagram;
-    var fbFrame = document.getElementById('fbFeedFrame');
-    var fbBtn = document.getElementById('fbPageLink');
-    var menuBtn = document.querySelector('#menuCtaHome a.btn');
-    var fbPostsBtn = document.getElementById('fbPostsLink');
-    var fbPostsUrl = fbUrl.replace(/\/$/, '') + '/posts';
-    if (fbBtn) fbBtn.href = fbPostsUrl;
-    if (fbPostsBtn) fbPostsBtn.href = fbPostsUrl;
-    if (menuBtn) menuBtn.href = fbPostsUrl;
-    if (fbFrame){
-      var buildFbPluginSrc = function(url){
-        return 'https://www.facebook.com/plugins/page.php?href=' + encodeURIComponent(url) + '&tabs=timeline&width=500&height=520&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=false&appId';
-      };
-      fbFrame.src = buildFbPluginSrc(fbUrl);
-      setTimeout(function(){
-        try{
-          if (!fbFrame.contentWindow) {
-            fbFrame.src = buildFbPluginSrc('https://www.facebook.com/pg/DFWELITEmealprepsandcateringco/');
-          }
-        }catch(_e){
-          fbFrame.src = buildFbPluginSrc('https://www.facebook.com/pg/DFWELITEmealprepsandcateringco/');
-        }
-      }, 2000);
-      fbFrame.addEventListener('error', function(){
-        var fbMob = document.querySelector('.fb-feed');
-        var fbFall = document.getElementById('fb-fallback');
-        if (fbMob) fbMob.style.display='none';
-        if (fbFall) fbFall.style.display='block';
-      });
-    }
-    window.addEventListener('DOMContentLoaded', function(){
-      var igBtn = document.getElementById('igPageLink');
-      if (igBtn) igBtn.href = igUrl;
-    });
-  })();
-</script>
-
-      <!-- Facebook/Instagram notes -->
-      <p class="small ig-note" style="text-align:center">Latest meals & updates from our social pages.</p>
-    </div>
-  </div>
-</section>
+  </section>
+  <script src="assets/js/social.js"></script>
   <!-- ✅ End Social Feed -->
 
   <script src="assets/js/render.js"></script>
