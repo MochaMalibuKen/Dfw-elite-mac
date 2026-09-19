@@ -3,7 +3,7 @@
   const container = document.getElementById('facebookFeedContainer');
   const frame = document.getElementById('facebookFeed');
   if (!container || !frame) return;
-  let width = 500;
+  let width = Number(new URL(frame.src).searchParams.get('width'));
   let timer;
   const resize = () => {
     const nextWidth = Math.min(500, Math.floor(container.clientWidth));
@@ -15,8 +15,13 @@
     frame.src = url.href;
   };
   resize();
-  window.addEventListener('resize', () => {
+  const scheduleResize = () => {
     clearTimeout(timer);
     timer = setTimeout(resize, 250);
-  });
+  };
+  if ('ResizeObserver' in window) {
+    new ResizeObserver(scheduleResize).observe(container);
+  } else {
+    window.addEventListener('resize', scheduleResize);
+  }
 })();

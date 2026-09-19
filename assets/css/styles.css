@@ -853,9 +853,9 @@ img.logo { max-height: 56px; height: auto; width: auto; }
 .facebook-feature { max-width: 550px; margin: 0 auto; padding: 24px; border: 1px solid #e5c9b1; border-radius: 22px; background: #fffaf5; box-shadow: 0 12px 30px #5734240c; }
 .facebook-feature-heading { text-align: center; margin-bottom: 20px; }
 .facebook-feature-heading p { margin: 8px 0 0; color: #69554a; }
-.facebook-feed-container { width: 100%; max-width: 500px; height: 650px; overflow: hidden; margin: auto; }
+.facebook-feed-container { position: relative; width: 100%; max-width: 500px; height: 650px; overflow: hidden; margin: auto; }
 /* Clip the compact 70px Facebook header; retain 650px for the timeline. */
-.facebook-feed-container iframe { display: block; width: 100%; height: 720px; margin-top: -70px; border: 0; background: #fff; }
+.facebook-feed-container iframe { display: block; width: 100%; height: 720px; position: absolute; top: -70px; left: 0; border: 0; background: #fff; }
 .facebook-feature-footer { text-align: center; padding-top: 22px; }
 .facebook-feature-footer p { margin-bottom: 0; line-height: 1.5; }
 .instagram-invitation { display: flex; align-items: center; justify-content: space-between; gap: 28px; max-width: 850px; margin: 28px auto 0; padding: 28px; border: 1px solid #eed5de; border-radius: 20px; background: linear-gradient(120deg, #fff3f7, #fff7ed); }
@@ -865,4 +865,11 @@ img.logo { max-height: 56px; height: auto; width: auto; }
 @media (max-width: 600px) {
   .facebook-feature { padding: 16px; border-radius: 18px; }
   .instagram-invitation { flex-direction: column; align-items: flex-start; padding: 24px; gap: 20px; }
+}
+
+@media (max-width: 600px) {
+  /* Give the feed the available phone width; inset only our text and button. */
+  .facebook-feature { padding: 20px 0; }
+  .facebook-feature-heading, .facebook-feature-footer { padding-left: 16px; padding-right: 16px; }
+  .facebook-feature-footer .btn { min-height: 44px; }
 }
